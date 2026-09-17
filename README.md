@@ -34,5 +34,5 @@ create policy "insert only" on messages for insert with check (true);
 - `content/` — copy (`i18n.ts`) and case studies (`projects.ts`)
 - `styles/tokens.css` — design tokens
 - `public/portrait.webp` — portrait on About and footer
-- `public/work/` — case-study images, referenced in `content/projects.ts`
+- `public/work/` — case-study files live here but are **not wired**. Empty `img: {}` in `content/projects.ts` shows the striped placeholder. Fill `img: { hero, card, s: [...] }` later to attach them.
 - `public/Hamidreza-Haji-CV.pdf` — add the CV here under this exact name so Resume buttons can download it

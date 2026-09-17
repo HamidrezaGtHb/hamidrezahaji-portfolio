@@ -13,7 +13,7 @@ const I18N = {
         beyondLabel: 'Beyond work', beyondTitle: 'What fills the rest of the day.', beyondSub: 'Building things with AI, learning German one card at a time, and a long-standing love for form — from 3D visualisation to bread.',
         beyond: [
           { bg: '#E9E7E2', img: 'photo: Leitner app on the kitchen table', h: 'Learning German, systematically', p: 'Our own Leitner box — AI writes the card backs, we do the repetitions. Phase 2 is on the roadmap.' },
-          { bg: '#E4E9F1', img: '3D visualisation', h: 'Form and 3D', p: 'Industrial-design roots: Rhino, 3ds Max and V-Ray still come out for product visualisation and the occasional side project.', src: '/work/3d-desktop.jpg' },
+          { bg: '#E4E9F1', img: 'photo: 3D render / sketchbook', h: 'Form and 3D', p: 'Industrial-design roots: Rhino, 3ds Max and V-Ray still come out for product visualisation and the occasional side project.' },
           { bg: '#F3E6DE', img: 'photo: bakery counter', h: 'People, in person', p: 'Working the counter at a bakery taught me more about real-world service design than any workshop.' }
         ] },
       hero: {
@@ -58,7 +58,7 @@ const I18N = {
         beyondLabel: 'Neben der Arbeit', beyondTitle: 'Was den Rest des Tages füllt.', beyondSub: 'Dinge mit KI bauen, Deutsch Karte für Karte lernen – und eine alte Liebe zur Form, von 3D-Visualisierung bis Brot.',
         beyond: [
           { bg: '#E9E7E2', img: 'Foto: Leitner-App auf dem Küchentisch', h: 'Deutsch lernen, systematisch', p: 'Unser eigener Leitner-Kasten – die KI schreibt die Rückseiten, wir machen die Wiederholungen. Phase 2 steht auf der Roadmap.' },
-          { bg: '#E4E9F1', img: '3D-Visualisierung', h: 'Form und 3D', p: 'Industriedesign-Wurzeln: Rhino, 3ds Max und V-Ray kommen für Produktvisualisierung und Nebenprojekte noch regelmäßig zum Einsatz.', src: '/work/3d-desktop.jpg' },
+          { bg: '#E4E9F1', img: 'Foto: 3D-Render / Skizzenbuch', h: 'Form und 3D', p: 'Industriedesign-Wurzeln: Rhino, 3ds Max und V-Ray kommen für Produktvisualisierung und Nebenprojekte noch regelmäßig zum Einsatz.' },
           { bg: '#F3E6DE', img: 'Foto: Bäckereitheke', h: 'Menschen, persönlich', p: 'Die Arbeit an der Bäckereitheke hat mir mehr über echtes Service-Design beigebracht als jeder Workshop.' }
         ] },
       hero: {

@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
   fg: "#FBE9ED",
   bgSoft: "#F6E4E8",
   year: "2022",
-  img: { hero: "palphone-collage.png", card: "palphone-collage.png", s: ["palphone-screen-waiting.jpg", "palphone-sketch.jpg", "palphone-sprint.png", "palphone-intro.png"] },
+  img: {},
   en: {
    title: "Palphone",
    tag: "Anonymous voice-first conversations with real people — led design from strategy to shipped features.",
@@ -312,7 +312,7 @@ export const PROJECTS: Project[] = [
   fg: "#E6ECF5",
   bgSoft: "#E3E8F0",
   year: "2022",
-  img: { hero: "payman-collage.png", card: "payman-collage.png", s: ["payman-home.jpg", "payman-services.jpg", "payman-chat.jpg", "payman-learning.jpg"] },
+  img: {},
   en: {
    title: "Payman",
    tag: "A super-app for taxi and truck drivers — services, shop, customer club, news, learning and chat in one place.",
@@ -420,7 +420,7 @@ export const PROJECTS: Project[] = [
   fg: "#EEEAF6",
   bgSoft: "#ECE8F3",
   year: "2021",
-  img: { hero: "tabassom-collage.png", card: "tabassom-collage.png", s: ["tabassom-home-light.jpg", "tabassom-home-dark.jpg", "tabassom-mobile-light.jpg", "tabassom-mobile-dark.jpg"] },
+  img: {},
   en: {
    title: "Tabassom",
    tag: "Video-based trading education with certificates, for the PR & information arm of the Iranian stock exchange.",
@@ -528,7 +528,7 @@ export const PROJECTS: Project[] = [
   fg: "#F7F5F1",
   bgSoft: "#E9E7E2",
   year: "2013–",
-  img: { hero: "identity-4.jpg", card: "identity-3.jpg", s: ["identity-1.png", "identity-2.png"] },
+  img: {},
   en: {
    title: "Brand Identity",
    tag: "Logos and corporate identity for Golrang, digital companies and many start-ups — alongside product work since 2013.",
