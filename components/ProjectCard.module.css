@@ -1,0 +1,8 @@
+.card{display:flex;flex-direction:column;gap:var(--s-4);width:clamp(420px,46vw,680px);color:var(--ink)}
+@media (max-width:900px){.card{width:min(78vw,380px)}}
+.media{transition:transform .5s var(--ease)}
+.card:hover .media{transform:scale(.985)}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s-4)}
+.title{font-size:var(--fs-card-title);font-weight:700;letter-spacing:var(--ls-tight);white-space:nowrap}
+.tag{font-size:var(--fs-small);line-height:1.5;color:var(--muted);margin-top:var(--s-1);min-height:63px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.view{font-size:var(--fs-label);font-weight:700;white-space:nowrap}

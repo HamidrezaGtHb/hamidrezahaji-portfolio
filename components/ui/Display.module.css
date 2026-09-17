@@ -1,0 +1,6 @@
+.display{margin:0;font-family:var(--font-display-next),var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:var(--ls-display);line-height:var(--lh-display);text-wrap:balance}
+.s{font-size:var(--fs-display-s);line-height:1.05}
+.m{font-size:var(--fs-display-m)}
+.l{font-size:var(--fs-display-l);line-height:.95}
+.xl{font-size:var(--fs-display-xl);line-height:var(--lh-tight)}
+.hero{font-size:var(--fs-hero);line-height:.9}

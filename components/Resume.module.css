@@ -1,0 +1,23 @@
+.skills{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(72px,9vh,120px) 0 clamp(48px,7vh,80px);overflow:hidden;border-top:1px solid var(--line);margin-top:0}
+.skillsHead{padding:0 var(--gutter);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:end;margin-bottom:clamp(48px,9vh,96px)}
+.skillsTitle{font-size:clamp(36px,min(4.2vw,7vh),68px)}
+.skillsSub{font-size:17px;line-height:1.55;color:var(--ink-2);max-width:440px;justify-self:end}
+.groups{padding:clamp(64px,10vh,120px) var(--gutter) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px}
+.group{border-top:1px solid var(--ink);padding-top:18px}
+.groupName{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.groupItems{font-size:15px;line-height:1.85;color:var(--ink-2);text-wrap:pretty}
+.exp{padding:clamp(72px,10vh,120px) var(--gutter);border-top:1px solid var(--line)}
+.expGrid{display:grid;grid-template-columns:minmax(280px,1fr) 1.3fr;gap:clamp(32px,5vw,72px)}
+@media (max-width:1100px){.expGrid{grid-template-columns:1fr}}
+.expTitle{font-size:clamp(40px,5vw,84px);margin-bottom:28px}
+.expSub{margin:0;font-size:17px;line-height:1.55;color:var(--ink-2);max-width:420px;text-wrap:pretty}
+.edu{margin-top:40px;display:flex;flex-direction:column;gap:14px;font-size:15px;color:var(--ink-2)}
+.eduRow{display:flex;gap:16px;border-top:1px solid var(--line);padding-top:12px}
+.eduY{width:56px;flex:none;color:var(--muted);font-variant-numeric:tabular-nums}
+.job{display:grid;grid-template-columns:110px 1fr;gap:var(--s-4);padding:22px 0;border-top:1px solid var(--line)}
+@media (max-width:900px){.job{grid-template-columns:1fr;gap:6px}}
+.jobWhen{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.5}
+.jobHead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.jobRole{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.jobOrg{font-size:14px;color:var(--muted)}
+.jobDesc{margin:8px 0 0;font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}

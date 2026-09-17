@@ -1,0 +1,7 @@
+.btn{display:inline-flex;align-items:center;gap:var(--s-2);padding:14px 22px;border-radius:var(--pill);font-weight:700;font-size:var(--fs-small);white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform var(--dur-fast) var(--ease),border-color var(--dur-fast),opacity var(--dur-fast)}
+.solid{background:var(--ink);color:var(--paper)}
+.solid:hover{transform:translateY(-2px)}
+.inverted{background:var(--paper);color:var(--ink)}
+.inverted:hover{transform:translateY(-2px)}
+.ghost{border-color:var(--line-strong);color:inherit;background:transparent}
+.ghost:hover{border-color:currentColor}

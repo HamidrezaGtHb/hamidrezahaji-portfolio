@@ -1,0 +1,45 @@
+.main{animation:rise .7s var(--ease) both}
+.intro{padding:clamp(100px,14vh,150px) var(--gutter) 0}
+.label{margin-bottom:clamp(20px,3vh,32px)}
+.introGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,4vh,48px) clamp(32px,5vw,80px);align-items:start}
+.introCol{display:flex;flex-direction:column;gap:clamp(20px,3vh,32px)}
+.title{font-size:clamp(40px,6vw,96px);line-height:.95}
+.story{display:flex;flex-direction:column;gap:16px;max-width:52ch}.story p{margin:0;font-size:clamp(16px,1.25vw,19px);line-height:1.6;color:var(--ink-2);text-wrap:pretty}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.portrait{width:100%;max-width:520px;justify-self:end;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--paper-2);position:relative}
+@media (max-width:900px){.portrait{aspect-ratio:1/1;max-width:none}}
+.portraitImg{object-fit:cover;object-position:center top;filter:grayscale(1);animation:zoomIn 1.6s .35s var(--ease) both}
+.facts{margin-top:clamp(56px,9vh,110px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px clamp(24px,3vw,40px);border-top:1px solid var(--ink);padding-top:24px}
+.factK{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.factV{font-size:clamp(17px,1.4vw,22px);font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.beyond{padding:clamp(72px,11vh,130px) var(--gutter) clamp(72px,11vh,130px)}
+.beyondHead{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:32px clamp(32px,5vw,80px);align-items:end;margin-bottom:clamp(32px,5vh,56px)}
+.beyondTitle{font-size:clamp(34px,4.2vw,68px)}
+.beyondSub{font-size:16px;line-height:1.55;color:var(--ink-2);max-width:44ch;justify-self:end;text-wrap:pretty}
+.beyondGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,3vw,32px)}
+.beyondCard{display:flex;flex-direction:column;gap:14px}
+.beyondImg{aspect-ratio:4/3;border-radius:var(--radius-sm);overflow:hidden;position:relative}
+.beyondCap{position:absolute;left:16px;bottom:14px;color:var(--ink-2);font-size:11px}
+.beyondH{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.beyondP{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
+.skills{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(72px,9vh,120px) 0 clamp(48px,7vh,80px);overflow:hidden;border-top:1px solid var(--line);margin-top:clamp(72px,11vh,130px)}
+.skillsHead{padding:0 var(--gutter);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:end;margin-bottom:clamp(48px,9vh,96px)}
+.skillsTitle{font-size:clamp(36px,min(4.2vw,7vh),68px)}
+.skillsSub{font-size:17px;line-height:1.55;color:var(--ink-2);max-width:440px;justify-self:end}
+.groups{padding:clamp(64px,10vh,120px) var(--gutter) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px}
+.group{border-top:1px solid var(--ink);padding-top:18px}
+.groupName{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.groupItems{font-size:15px;line-height:1.85;color:var(--ink-2);text-wrap:pretty}
+.exp{padding:120px var(--gutter);border-top:1px solid var(--line)}
+.expGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px}
+.expTitle{font-size:clamp(40px,5vw,84px);margin-bottom:28px}
+.expSub{margin:0;font-size:17px;line-height:1.55;color:var(--ink-2);max-width:420px;text-wrap:pretty}
+.edu{margin-top:40px;display:flex;flex-direction:column;gap:14px;font-size:15px;color:var(--ink-2)}
+.eduRow{display:flex;gap:16px;border-top:1px solid var(--line);padding-top:12px}
+.eduY{width:56px;flex:none;color:var(--muted);font-variant-numeric:tabular-nums}
+.job{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.jobWhen{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.5}
+.jobHead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.jobRole{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.jobOrg{font-size:14px;color:var(--muted)}
+.jobDesc{margin:8px 0 0;font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}

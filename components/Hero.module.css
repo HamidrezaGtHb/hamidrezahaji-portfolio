@@ -1,0 +1,11 @@
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:96px var(--gutter) var(--s-6);position:relative;overflow:hidden}
+.stack{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(20px,4.5vh,48px)}
+.status{display:inline-flex;align-self:flex-start;align-items:center;gap:var(--s-3);font-size:var(--fs-label);font-weight:600;color:var(--ink-2);padding:10px var(--s-4) 10px var(--s-3);border-radius:var(--pill);background:rgba(20,19,17,.06)}
+.statusDot{width:8px;height:8px;border-radius:50%;background:var(--ink);animation:blink 2s infinite}
+.statement{margin:0;font-weight:400;letter-spacing:-.015em;line-height:var(--lh-snug);font-size:clamp(18px,min(2.6vw,3.6vh),40px);max-width:34ch;text-wrap:pretty}
+.strong{color:var(--ink)}
+.weak{color:var(--muted-2)}
+.ctas{display:flex;gap:var(--s-3);flex-wrap:wrap}
+.marquee{margin-top:var(--s-7);border-top:1px solid var(--line);padding-top:var(--s-4);overflow:hidden;white-space:nowrap;font-size:var(--fs-label);font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.track{display:inline-flex;animation:marquee 40s linear infinite;width:max-content}
+.track span{padding-right:48px}

@@ -1,0 +1,23 @@
+.main{animation:rise .7s var(--ease) both}
+.head{padding:clamp(100px,14vh,140px) var(--gutter) clamp(28px,4vh,40px)}
+.back{font-size:13px;font-weight:700;color:var(--muted);display:inline-block}
+.titleRow{margin-top:clamp(20px,3vh,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vh,32px) clamp(24px,4vw,64px);align-items:end}
+.title{line-height:.92;font-size:clamp(44px,7.5vw,120px)}
+.tag{margin:0;font-size:clamp(18px,1.6vw,24px);line-height:1.4;letter-spacing:-.01em;max-width:44ch;text-wrap:pretty}
+.meta{margin-top:clamp(32px,5vh,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px 24px;border-top:1px solid var(--ink);padding-top:20px}
+.metaK{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.metaV{font-size:16px;font-weight:600}
+.hero{--d:.55s}
+.hero [data-reveal-img],.hero > div:first-child{animation:zoomIn 1.6s .55s var(--ease) both}
+.body{padding:clamp(64px,10vh,120px) var(--gutter);display:flex;flex-direction:column;gap:clamp(64px,10vh,120px)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vh,40px) clamp(24px,4vw,64px)}
+.n{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.h{font-size:clamp(28px,3vw,48px);line-height:1.05}
+.col{display:flex;flex-direction:column;gap:28px}
+.p{margin:0;font-size:clamp(16px,1.2vw,18px);line-height:1.6;color:var(--ink-2);text-wrap:pretty;max-width:60ch}
+.img{aspect-ratio:3/2;border-radius:var(--radius-sm);position:relative;overflow:hidden}
+.imgCap{position:absolute;left:18px;bottom:16px;color:var(--ink-2)}
+.next{border-top:1px solid var(--line);padding:clamp(48px,7vh,72px) var(--gutter) clamp(40px,6vh,56px)}
+.nextLink{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+.nextTitle{line-height:.95;font-size:clamp(32px,4.2vw,64px)}
+.view{font-size:15px;font-weight:700}

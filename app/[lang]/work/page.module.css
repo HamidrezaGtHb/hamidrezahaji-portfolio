@@ -1,0 +1,6 @@
+.main{animation:rise .7s var(--ease) both}
+.head{padding:clamp(110px,16vh,160px) var(--gutter) clamp(32px,5vh,56px);display:flex;flex-direction:column;gap:20px}
+.headRow{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.title{font-size:clamp(40px,7vw,120px);line-height:.95;max-width:16ch}
+.sub{margin:0;font-size:16px;line-height:1.55;color:var(--ink-2);max-width:38ch;text-wrap:pretty}
+.list{padding:0 var(--gutter) clamp(64px,10vh,120px);display:flex;flex-direction:column;gap:clamp(56px,9vh,112px)}

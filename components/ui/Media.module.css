@@ -1,0 +1,16 @@
+.media{position:relative;overflow:hidden;border-radius:var(--r-sm)}
+.landscape{aspect-ratio:4/3}
+.portrait{aspect-ratio:4/5}
+.wide{aspect-ratio:16/9;border-radius:var(--r)}
+.square{aspect-ratio:1/1}
+.still{aspect-ratio:3/2}
+.card{aspect-ratio:4/3;max-height:calc(100svh - 300px)}
+@media (max-width:900px){.card{aspect-ratio:3/4}.wide{aspect-ratio:4/5}}
+.stripes,.stripesSoft{position:absolute;inset:0}
+.stripes{background:repeating-linear-gradient(135deg,rgba(255,255,255,.14) 0 14px,transparent 14px 28px)}
+.stripesSoft{background:repeating-linear-gradient(135deg,rgba(0,0,0,.05) 0 14px,transparent 14px 28px)}
+.caption{position:absolute;left:var(--s-5);bottom:18px;color:var(--ink-2)}
+.badge{position:absolute;top:18px;right:var(--s-5);font-size:var(--fs-caption);font-weight:700;padding:6px 10px;border-radius:var(--pill);background:rgba(247,245,241,.92);color:var(--ink)}
+@media (max-width:900px){.caption{left:var(--s-4);bottom:14px}.badge{top:14px;right:var(--s-4)}}
+.img{object-fit:cover;object-position:center top}
+.captionOnImage{color:var(--paper);background:rgba(20,19,17,.35);padding:4px 8px;border-radius:4px;backdrop-filter:blur(6px)}

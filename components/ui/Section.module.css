@@ -1,0 +1,4 @@
+.section{padding:var(--section-y) var(--gutter)}
+.top{padding-top:var(--page-top)}
+.tight{padding-top:var(--section-y-sm);padding-bottom:var(--section-y-sm)}
+.rule{border-top:1px solid var(--line)}
