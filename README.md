@@ -19,8 +19,6 @@ Open [http://localhost:3000](http://localhost:3000). The root path redirects to 
 
 ## Supabase (optional)
 
-Create a table for contact messages:
-
 ```sql
 create table messages (id uuid primary key default gen_random_uuid(), created_at timestamptz default now(), name text, email text, body text);
 alter table messages enable row level security;
@@ -34,13 +32,7 @@ create policy "insert only" on messages for insert with check (true);
 - `app/[lang]/` — routes: `/`, `/work`, `/work/[slug]`, `/about`
 - `components/` — Nav, Intro, Hero, WorkScroller, Footer, Reveal, SkillRows, ProjectCard…
 - `content/` — copy (`i18n.ts`) and case studies (`projects.ts`)
-- `styles/tokens.css` — design tokens (colors, type, spacing, motion)
-- `public/portrait.webp` — portrait used on About and the footer
-- `public/work/` — case-study images, referenced in `content/projects.ts` → `img: { hero, card, s: [...] }`
+- `styles/tokens.css` — design tokens
+- `public/portrait.webp` — portrait on About and footer
+- `public/work/` — case-study images, referenced in `content/projects.ts`
 - `public/Hamidreza-Haji-CV.pdf` — add the CV here under this exact name so Resume buttons can download it
-
-## Design system
-
-Ink `#2A2826` · Paper `#F7F5F1` · Muted `#7A756D` · Accent `#8C877E` · Footer `#323030`  
-Display: Cormorant Garamond 600 uppercase · Body: Hanken Grotesk  
-Page gutter: `clamp(20px, 4vw, 56px)` · Easing: `cubic-bezier(.2,.7,.2,1)`
