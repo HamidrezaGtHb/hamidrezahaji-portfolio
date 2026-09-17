@@ -32,7 +32,7 @@ export default async function About({ params }: { params: Promise<{ lang: Lang }
       </div>
       <div className={s.beyondGrid}>{d.about.beyond.map(b => (
         <Reveal key={b.h} className={s.beyondCard}>
-          <Media bg={b.bg} caption={b.img} ratio="landscape" soft zoomOnReveal src={'src' in b ? b.src : undefined} alt={b.h} sizes="(max-width:900px) 100vw, 33vw" />
+          <Media bg={b.bg} caption={b.img} ratio="landscape" soft zoomOnReveal alt={b.h} sizes="(max-width:900px) 100vw, 33vw" />
           <div className={s.beyondH}>{b.h}</div><p className={s.beyondP}>{b.p}</p>
         </Reveal>))}
       </div>
