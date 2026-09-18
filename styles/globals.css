@@ -20,7 +20,8 @@ button{font:inherit}
 .display{margin:0;font-family:var(--font-display-next),var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:var(--ls-display);line-height:var(--lh-display);text-wrap:balance}
 .label{margin:0;font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--muted)}
 
-.pill{display:inline-flex;align-items:center;gap:var(--s-2);padding:14px 22px;border-radius:var(--pill);font-weight:700;font-size:var(--fs-small);white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform var(--dur-fast) var(--ease),border-color var(--dur-fast)}
+.pill{display:inline-flex;align-items:center;gap:var(--s-2);padding:14px 22px;border-radius:var(--pill);font-weight:700;font-size:var(--fs-small);white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform var(--dur-fast) var(--ease),border-color var(--dur-fast);font-variant-emoji:text}
+.pill small{font-size:inherit;font-weight:inherit;line-height:1}
 .pill--solid{background:var(--ink);color:var(--paper)}
 .pill--solid:hover{transform:translateY(-2px)}
 .pill--ghost{border-color:var(--line-strong);color:inherit;background:transparent}

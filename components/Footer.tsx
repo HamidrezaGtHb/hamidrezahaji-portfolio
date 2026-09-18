@@ -23,8 +23,8 @@ export default function Footer({ d, id = 'contact' }: { lang?: Lang; d: Dict; id
             <a href="mailto:hamidrezahaji.uix@gmail.com" className={s.mail}>hamidrezahaji.uix@gmail.com</a>
           </div>
           <div className={s.links}>
-            <a href="https://linkedin.com/in/hamidreza-haji" target="_blank" rel="noreferrer">LinkedIn <small>↗</small></a>
-            <a href="https://www.instagram.com/hamidreza_haji/" target="_blank" rel="noreferrer">Instagram <small>↗</small></a>
+            <a href="https://linkedin.com/in/hamidreza-haji" target="_blank" rel="noreferrer">LinkedIn <small>↗︎</small></a>
+            <a href="https://www.instagram.com/hamidreza_haji/" target="_blank" rel="noreferrer">Instagram <small>↗︎</small></a>
           </div>
         </div>
       </Reveal>

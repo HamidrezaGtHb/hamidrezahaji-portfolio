@@ -18,8 +18,8 @@ export default async function About({ params }: { params: Promise<{ lang: Lang }
           <div className={'rise ' + s.story} style={css('.3s')}>{d.about.story.map((p, i) => <p key={i}>{p}</p>)}</div>
           <div className={'rise ' + s.ctas} style={css('.45s')}>
             <Link href="#contact-about" className="pill pill--solid">{d.hero.ctaCv}</Link>
-            <a href={CV} download={CV_DOWNLOAD} target="_blank" rel="noreferrer" className="pill pill--ghost">{d.contact.resume} ↓</a>
-            <a href="https://linkedin.com/in/hamidreza-haji" target="_blank" rel="noreferrer" className="pill pill--ghost">LinkedIn ↗</a>
+            <a href={CV} download={CV_DOWNLOAD} target="_blank" rel="noreferrer" className="pill pill--ghost">{d.contact.resume} <small>↓</small></a>
+            <a href="https://linkedin.com/in/hamidreza-haji" target="_blank" rel="noreferrer" className="pill pill--ghost">LinkedIn <small>↗︎</small></a>
           </div>
         </div>
         <div className={'rise ' + s.portrait} style={css('.35s')}><Image src="/portrait.webp" alt="Hamidreza Haji" fill sizes="(max-width:900px) 100vw, 520px" className={s.portraitImg} priority /></div>

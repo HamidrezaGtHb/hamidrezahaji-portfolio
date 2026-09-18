@@ -36,7 +36,7 @@ export default function Nav({ lang }: { lang: Lang }) {
         <Link href={'/' + lang + '/about'} className={'display ' + s.menuItem}>{d.nav.about}</Link>
         <a href={CV} download={CV_DOWNLOAD} target="_blank" rel="noreferrer" className={'display ' + s.menuItem}>{d.contact.resume}<span className={s.count}>PDF ↓</span></a>
       </div>
-      <div className={s.menuFoot}><a href="mailto:hamidrezahaji.uix@gmail.com">hamidrezahaji.uix@gmail.com</a><a href="https://linkedin.com/in/hamidreza-haji" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+      <div className={s.menuFoot}><a href="mailto:hamidrezahaji.uix@gmail.com">hamidrezahaji.uix@gmail.com</a><a href="https://linkedin.com/in/hamidreza-haji" target="_blank" rel="noreferrer">LinkedIn <small>↗︎</small></a></div>
       <span hidden>{other}</span>
     </div>}
   </>);
