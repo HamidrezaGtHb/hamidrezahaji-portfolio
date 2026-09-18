@@ -20,6 +20,6 @@ export default function Hero({ lang, d }: { lang: Lang; d: Dict }) {
         <Button href="mailto:hamidrezahaji.uix@gmail.com" variant="ghost">{d.hero.ctaCv}</Button>
       </div>
     </div>
-    <div className={'rise ' + s.marquee} style={dl(.5)}><div className={s.track}><span>{d.hero.marquee}</span><span>{d.hero.marquee}</span></div></div>
+    <div className={'rise ' + s.marqueeWrap} style={dl(.5)}><div className={s.track}><span>{d.hero.marquee}</span><span>{d.hero.marquee}</span></div></div>
   </section>);
 }

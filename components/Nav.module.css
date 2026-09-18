@@ -16,3 +16,4 @@
 .count{font-family:var(--font-body);font-size:13px;font-weight:700;text-transform:none;letter-spacing:0;color:var(--muted)}
 .menuFoot{margin-top:28px;display:flex;justify-content:space-between;gap:16px;font-size:13px;font-weight:600;color:var(--ink)}
 .menuHome{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--muted);padding-bottom:14px}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}

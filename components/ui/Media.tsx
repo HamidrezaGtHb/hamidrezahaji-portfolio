@@ -11,6 +11,6 @@ export default function Media({ bg, fg, caption, badge, ratio = 'landscape', sof
     </div>
     {children}
     {badge && <div className={s.badge}>{badge}</div>}
-    {caption && <div className={'mono ' + s.caption + (src ? ' ' + s.captionOnImage : '')} style={fg && !src ? { color: fg } : undefined}>{caption}</div>}
+    {caption && <div className={['mono', s.caption, soft ? s.captionSoft : ''].filter(Boolean).join(' ')}>{caption}</div>}
   </div>);
 }

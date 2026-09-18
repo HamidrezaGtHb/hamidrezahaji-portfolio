@@ -5,6 +5,7 @@ import LocalTime from './LocalTime';
 import Button from './ui/Button';
 import Display from './ui/Display';
 import Label from './ui/Label';
+import { CV, CV_DOWNLOAD } from '@/content/cv';
 import s from './Footer.module.css';
 /** Inverted contact footer — identical on every page. */
 export default function Footer({ d, id = 'contact' }: { lang?: Lang; d: Dict; id?: string }) {
@@ -18,7 +19,7 @@ export default function Footer({ d, id = 'contact' }: { lang?: Lang; d: Dict; id
         </div>
         <div className={s.actions}>
           <div className={s.ctaRow}>
-            <Button href="/Hamidreza-Haji-CV.pdf" download variant="inverted">{d.contact.resume} ↓</Button>
+            <Button href={CV} download={CV_DOWNLOAD} variant="inverted">{d.contact.resume} ↓</Button>
             <a href="mailto:hamidrezahaji.uix@gmail.com" className={s.mail}>hamidrezahaji.uix@gmail.com</a>
           </div>
           <div className={s.links}>

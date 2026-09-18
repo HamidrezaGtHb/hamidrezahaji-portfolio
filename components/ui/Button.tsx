@@ -6,7 +6,7 @@ type Props = { children: React.ReactNode; variant?: Variant; href?: string; down
 export default function Button({ children, variant = 'solid', href, download, external, onClick, className = '' }: Props) {
   const cls = [s.btn, s[variant], className].filter(Boolean).join(' ');
   if (href && (external || download || href.startsWith('mailto:') || href.startsWith('#')))
-    return <a href={href} className={cls} download={download as never} {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}>{children}</a>;
+    return <a href={href} className={cls} download={download as never} {...(external || download ? { target: '_blank', rel: 'noreferrer' } : {})}>{children}</a>;
   if (href) return <Link href={href} className={cls}>{children}</Link>;
   return <button type="button" onClick={onClick} className={cls}>{children}</button>;
 }

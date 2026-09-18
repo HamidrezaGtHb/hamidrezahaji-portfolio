@@ -7,6 +7,8 @@
 .strong{color:var(--ink)}
 .weak{color:var(--muted-2)}
 .ctas{display:flex;gap:var(--s-3);flex-wrap:wrap}
-.marquee{margin-top:var(--s-7);border-top:1px solid var(--line);padding-top:var(--s-4);overflow:hidden;white-space:nowrap;font-size:var(--fs-label);font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.track{display:inline-flex;animation:marquee 40s linear infinite;width:max-content}
-.track span{padding-right:48px}
+.marqueeWrap{margin-top:var(--s-7);border-top:1px solid var(--line);padding-top:var(--s-4);overflow:hidden;white-space:nowrap;font-size:var(--fs-label);font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.track{display:inline-flex;width:max-content;will-change:transform;animation:marqueeScroll 32s linear infinite}
+.track span{padding-right:48px;flex:none}
+@keyframes marqueeScroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}}

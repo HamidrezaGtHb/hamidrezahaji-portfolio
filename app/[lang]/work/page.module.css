@@ -4,3 +4,4 @@
 .title{font-size:clamp(40px,7vw,120px);line-height:.95;max-width:16ch}
 .sub{margin:0;font-size:16px;line-height:1.55;color:var(--ink-2);max-width:38ch;text-wrap:pretty}
 .list{padding:0 var(--gutter) clamp(64px,10vh,120px);display:flex;flex-direction:column;gap:clamp(56px,9vh,112px)}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
