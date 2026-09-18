@@ -12,3 +12,4 @@
 .track span{padding-right:48px;flex:none}
 @keyframes marqueeScroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 @media (prefers-reduced-motion:reduce){.track{animation:none}}
+@media (max-width:900px){.marqueeWrap{font-size:11px;letter-spacing:.04em;padding-top:var(--s-3)}.track span{padding-right:36px}}
