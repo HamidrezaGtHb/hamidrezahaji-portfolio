@@ -15,6 +15,6 @@
 .links small{font-size:var(--fs-caption)}
 .portrait{flex:0 1 min(100%,380px);width:100%;aspect-ratio:4/5;max-height:440px;border-radius:var(--r-lg);overflow:hidden;background:var(--paper-2);position:relative}
 @media (max-width:900px){.portrait{aspect-ratio:1/1;max-height:none}}
-.img{object-fit:cover;object-position:center top;filter:grayscale(1);transition:transform 1.2s var(--ease)}
+.img{object-fit:cover;object-position:center center;filter:grayscale(1);transition:transform 1.2s var(--ease)}
 .portrait:hover .img{transform:scale(1.03)}
 .bottom{margin-top:clamp(24px,4vh,64px);display:flex;justify-content:space-between;gap:var(--s-2) var(--s-5);flex-wrap:wrap;font-size:var(--fs-caption);color:var(--muted-2);border-top:1px solid var(--line-inverted);padding-top:14px;font-variant-numeric:tabular-nums}

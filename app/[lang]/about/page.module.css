@@ -8,7 +8,7 @@
 .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .portrait{width:100%;max-width:520px;justify-self:end;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--paper-2);position:relative}
 @media (max-width:900px){.portrait{aspect-ratio:1/1;max-width:none}}
-.portraitImg{object-fit:cover;object-position:center top;filter:grayscale(1);animation:zoomIn 1.6s .35s var(--ease) both}
+.portraitImg{object-fit:cover;object-position:center center;filter:grayscale(1);animation:zoomIn 1.6s .35s var(--ease) both}
 .facts{margin-top:clamp(56px,9vh,110px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px clamp(24px,3vw,40px);border-top:1px solid var(--ink);padding-top:24px}
 .factK{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .factV{font-size:clamp(17px,1.4vw,22px);font-weight:600;letter-spacing:-.01em;line-height:1.3}
