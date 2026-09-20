@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
   fg: "#FBE9ED",
   bgSoft: "#F6E4E8",
   year: "2022",
-  img: {},
+  img: { card: "palphone-card.jpg", hero: "palphone-hero.jpg" },
   en: {
    title: "Palphone",
    tag: "Anonymous voice-first conversations with real people — led design from strategy to shipped features.",
