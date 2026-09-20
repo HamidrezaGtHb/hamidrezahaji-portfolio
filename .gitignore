@@ -18,3 +18,7 @@ npm-debug.log*
 .DS_Store
 *.tsbuildinfo
 .vercel
+
+# local source originals (optimized copies live in public/)
+images/
+meinFoto.png
