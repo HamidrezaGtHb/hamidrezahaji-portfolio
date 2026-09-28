@@ -65,6 +65,11 @@ export const PROJECTS: Project[] = [
      p: "Leading brainstorming, working closely with a UX designer on the next version and with the front-end team on hand-off made the product calmer and the release smoother.",
      img: "Shipped UI · dark",
      shots: [{ src: "palphone-outcome.jpg", cap: "Shipped UI · dark" }]
+    },
+    {
+     n: "05 · Learnings",
+     h: "My first design-lead role — where alignment mattered more than tooling.",
+     p: "This was where I moved from executing screens to leading a team. Facilitating brainstorming, pairing with a UX designer on the next version and staying close to front-end during hand-off shaped the result more than any single design decision. Fluency in Figma kept my pace up — but the real growth was guiding a group toward the simplest flow and getting it shipped."
     }
    ]
   },
@@ -119,6 +124,11 @@ export const PROJECTS: Project[] = [
      p: "Leitung der Brainstormings, enge Zusammenarbeit mit einem UX-Designer an der nächsten Version und mit dem Frontend-Team bei der Umsetzung machten das Produkt ruhiger und den Release reibungsloser.",
      img: "Finale UI · Dark",
      shots: [{ src: "palphone-outcome.jpg", cap: "Finale UI · Dark" }]
+    },
+    {
+     n: "05 · Learnings",
+     h: "Meine erste Rolle als Design Lead – Abstimmung zählte mehr als Werkzeuge.",
+     p: "Hier wechselte ich vom Umsetzen einzelner Screens zum Führen eines Teams. Brainstormings zu moderieren, mit einem UX-Designer an der nächsten Version zu arbeiten und beim Hand-off eng mit dem Frontend zu bleiben, prägte das Ergebnis mehr als jede einzelne Design-Entscheidung. Figma-Routine hielt mein Tempo hoch – der eigentliche Fortschritt lag darin, ein Team zum einfachsten Flow zu führen und ihn auszuliefern."
     }
    ]
   }
