@@ -30,7 +30,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
           <div><div className={s.n}>{sec.n}</div><h2 className={'display ' + s.h}>{sec.h}</h2></div>
           <div className={s.col}>
             <p className={s.p}>{sec.p}</p>
-            {sec.img && <Media bg={p.bgSoft} caption={sec.img} ratio="still" soft zoomOnReveal src={sec.src} alt={sec.h} sizes="(max-width:900px) 100vw, 50vw" />}
+            {sec.shots?.length
+              ? sec.shots.map((sh, j) => <Media key={j} bg={p.bgSoft} caption={sh.cap} ratio={sh.ratio ?? 'landscape'} soft zoomOnReveal src={sh.src} alt={sec.h} sizes="(max-width:900px) 100vw, 50vw" />)
+              : sec.img && <Media bg={p.bgSoft} caption={sec.img} ratio="still" soft zoomOnReveal src={sec.src} alt={sec.h} sizes="(max-width:900px) 100vw, 50vw" />}
           </div>
         </Reveal>
       ))}
