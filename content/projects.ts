@@ -2,7 +2,7 @@ import type { Lang } from './i18n';
 export type SectionShot = { src: string; cap: string; ratio?: 'landscape' | 'wide' | 'square' | 'still' | 'portrait' };
 export type ProjectSection = { n: string; h: string; p: string; img?: string; shots?: SectionShot[] };
 export type ProjectLocale = { title: string; tag: string; placeholder: string; hero: string; meta: [string, string][]; sections: ProjectSection[] };
-export type ProjectImages = { hero?: string; card?: string; s?: string[] };
+export type ProjectImages = { hero?: string; heroMobile?: string; card?: string; s?: string[] };
 export type Project = { slug: string; bg: string; fg: string; bgSoft: string; year: string; img: ProjectImages; en: ProjectLocale; de: ProjectLocale };
 /** Images live in /public/work/. */
 export const IMG = '/work/';
@@ -139,7 +139,7 @@ export const PROJECTS: Project[] = [
   fg: "#EEF3E8",
   bgSoft: "#E9EEE3",
   year: "2025",
-  img: { hero: "marefat-hero.jpg" },
+  img: { hero: "marefat-hero.jpg", heroMobile: "marefat-hero-mobile.jpg" },
   en: {
    title: "Marefat Pilgrimage",
    tag: "Live booking website designed and built solo with AI — payments, services and 4 months of ongoing support.",
@@ -887,7 +887,7 @@ export const SKILL_ROWS = [
 ];
 export function localized(p: Project, lang: Lang) {
   const l = p[lang];
-  return { ...p, ...l, cardSrc: p.img.card ? IMG + p.img.card : undefined, heroSrc: p.img.hero ? IMG + p.img.hero : undefined, sections: l.sections.map((s, i) => ({ ...s, src: p.img.s?.[i] ? IMG + p.img.s[i] : undefined, shots: s.shots?.map(sh => ({ ...sh, src: IMG + sh.src })) })), meta: l.meta.map(([k, v]) => ({ k, v })), scopeLine: [l.meta[0][1], l.meta[2][1], l.meta[3][1]].join('  —  ') };
+  return { ...p, ...l, cardSrc: p.img.card ? IMG + p.img.card : undefined, heroSrc: p.img.hero ? IMG + p.img.hero : undefined, heroMobileSrc: p.img.heroMobile ? IMG + p.img.heroMobile : undefined, sections: l.sections.map((s, i) => ({ ...s, src: p.img.s?.[i] ? IMG + p.img.s[i] : undefined, shots: s.shots?.map(sh => ({ ...sh, src: IMG + sh.src })) })), meta: l.meta.map(([k, v]) => ({ k, v })), scopeLine: [l.meta[0][1], l.meta[2][1], l.meta[3][1]].join('  —  ') };
 }
 export type LocalizedProject = ReturnType<typeof localized>;
 export function getProject(slug: string) { return PROJECTS.find(p => p.slug === slug); }

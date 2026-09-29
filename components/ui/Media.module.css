@@ -24,3 +24,8 @@
 .badge{position:absolute;top:18px;right:var(--s-5);font-size:var(--fs-caption);font-weight:700;padding:6px 10px;border-radius:var(--pill);background:rgba(247,245,241,.92);color:var(--ink)}
 @media (max-width:900px){.caption{left:var(--s-4);bottom:14px}.wide .caption{left:20px;bottom:18px}.badge{top:14px;right:var(--s-4)}}
 .img{object-fit:cover;object-position:center top}
+.imgMobile{display:none}
+@media (max-width:900px){
+  .imgDesktop{display:none}
+  .imgMobile{display:block}
+}
