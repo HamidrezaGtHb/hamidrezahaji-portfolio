@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "images": "node scripts/optimize-images.mjs",
+    "images:init": "node scripts/optimize-images.mjs --init"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.47.0",
@@ -20,6 +22,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "^15.1.11",
+    "sharp": "^0.35.5",
     "typescript": "^5"
   }
 }

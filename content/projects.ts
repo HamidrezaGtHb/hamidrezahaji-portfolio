@@ -2,9 +2,9 @@ import type { Lang } from './i18n';
 export type SectionShot = { src: string; cap: string; ratio?: 'landscape' | 'wide' | 'square' | 'still' | 'portrait' };
 export type ProjectSection = { n: string; h: string; p: string; img?: string; shots?: SectionShot[] };
 export type ProjectLocale = { title: string; tag: string; placeholder: string; hero: string; meta: [string, string][]; sections: ProjectSection[] };
-export type ProjectImages = { hero?: string; heroMobile?: string; card?: string; s?: string[] };
+export type ProjectImages = { home?: string; homeMobile?: string; work?: string; s?: string[] };
 export type Project = { slug: string; bg: string; fg: string; bgSoft: string; year: string; img: ProjectImages; en: ProjectLocale; de: ProjectLocale };
-/** Images live in /public/work/. */
+/** Optimized images live in /public/work/<slug>/{cover,sections}/. Originals in images/<slug>/. */
 export const IMG = '/work/';
 export const PROJECTS: Project[] = [
  {
@@ -13,7 +13,11 @@ export const PROJECTS: Project[] = [
   fg: "#FBE9ED",
   bgSoft: "#F6E4E8",
   year: "2022",
-  img: { card: "palphone-card.jpg", hero: "palphone-hero.jpg", heroMobile: "palphone-hero-mobile.jpg" },
+  img: {
+   home: "palphone/cover/home-desktop.jpg",
+   homeMobile: "palphone/cover/home-mobile.jpg",
+   work: "palphone/cover/work-desktop.jpg",
+  },
   en: {
    title: "Palphone",
    tag: "Anonymous voice-first conversations with real people — led design from strategy to shipped features.",
@@ -43,28 +47,28 @@ export const PROJECTS: Project[] = [
      h: "A platform that lets people talk anonymously with real humans — safely and privately.",
      p: "Palphone connects strangers for voice conversations without accounts or personal data. I joined as design lead, owning the UX/UI team, planning, and the brand identity.",
      img: "Onboarding & final UI",
-     shots: [{ src: "palphone-context.jpg", cap: "Onboarding & final UI" }]
+     shots: [{ src: "palphone/sections/01-context.jpg", cap: "Onboarding & final UI" }]
     },
     {
      n: "02 · Challenge",
      h: "No sign-up, no personal data, voice before chat — and still feel effortless.",
      p: "The brief: a minimal, friendly app with no registration and no data capture, focused on speech rather than text. A research team already existed, so the design had to be built directly on their findings — plus a brand identity from scratch.",
      img: "Early sketches",
-     shots: [{ src: "palphone-sketches.jpg", cap: "Early sketches" }, { src: "palphone-wireframes.jpg", cap: "Wireframes" }]
+     shots: [{ src: "palphone/sections/02-sketches.jpg", cap: "Early sketches" }, { src: "palphone/sections/02-wireframes.jpg", cap: "Wireframes" }]
     },
     {
      n: "03 · Approach",
      h: "Find the shortest path from opening the app to being in a conversation.",
      p: "I produced several directions and ran brainstorming sessions with a small technical team. We chose the flow that asks the least of the user before connecting them; chat stayed, video and image sharing were deliberately excluded; a feedback loop flags and removes fake users. The work was planned in three sprints covering phase 1, logo and character design.",
      img: "User flow",
-     shots: [{ src: "palphone-flow.jpg", cap: "User flow" }, { src: "palphone-sprints.jpg", cap: "Three-sprint plan" }]
+     shots: [{ src: "palphone/sections/03-user-flow.jpg", cap: "User flow" }, { src: "palphone/sections/03-sprint-plan.jpg", cap: "Three-sprint plan" }]
     },
     {
      n: "04 · Outcome",
      h: "Positive feedback on intuitive usability — and a team that shipped faster.",
      p: "Leading brainstorming, working closely with a UX designer on the next version and with the front-end team on hand-off made the product calmer and the release smoother.",
      img: "Shipped UI · dark",
-     shots: [{ src: "palphone-outcome.jpg", cap: "Shipped UI · dark" }]
+     shots: [{ src: "palphone/sections/04-outcome.jpg", cap: "Shipped UI · dark" }]
     },
     {
      n: "05 · Learnings",
@@ -102,28 +106,28 @@ export const PROJECTS: Project[] = [
      h: "Eine Plattform, die es ermöglicht, anonym mit echten Menschen zu sprechen – sicher und privat.",
      p: "Palphone verbindet Fremde zu Sprachgesprächen, ohne Konto und ohne persönliche Daten. Ich kam als Design Lead: Verantwortung für UX/UI-Team, Planung und Brand Identity.",
      img: "Onboarding & finale UI",
-     shots: [{ src: "palphone-context.jpg", cap: "Onboarding & finale UI" }]
+     shots: [{ src: "palphone/sections/01-context.jpg", cap: "Onboarding & finale UI" }]
     },
     {
      n: "02 · Herausforderung",
      h: "Ohne Anmeldung, ohne Datenerfassung, Sprache vor Chat – und trotzdem mühelos.",
      p: "Die Aufgabe: eine minimalistische, benutzerfreundliche App ohne Registrierung, fokussiert auf sprachbasierte Kommunikation statt Chat. Ein Research-Team war vorhanden, das Design baute direkt auf dessen Ergebnissen auf – plus Entwicklung des Brand Identity Designs.",
      img: "Frühe Skizzen",
-     shots: [{ src: "palphone-sketches.jpg", cap: "Frühe Skizzen" }, { src: "palphone-wireframes.jpg", cap: "Wireframes" }]
+     shots: [{ src: "palphone/sections/02-sketches.jpg", cap: "Frühe Skizzen" }, { src: "palphone/sections/02-wireframes.jpg", cap: "Wireframes" }]
     },
     {
      n: "03 · Ansatz",
      h: "Den kürzesten Weg vom App-Start bis ins Gespräch finden.",
      p: "Ich erstellte mehrere Designs und führte Brainstorming-Sitzungen mit einem technischen Team. Entscheidung: der Flow, der vom Nutzer am wenigsten verlangt; Chat bleibt, Videoanrufe und Bildübertragung bewusst ausgeschlossen; Nutzer-Feedback identifiziert und entfernt unechte Profile. Geplant in drei Sprints: Phase 1, Logo, Charakterdesign.",
      img: "User-Flow",
-     shots: [{ src: "palphone-flow.jpg", cap: "User-Flow" }, { src: "palphone-sprints.jpg", cap: "Drei-Sprint-Plan" }]
+     shots: [{ src: "palphone/sections/03-user-flow.jpg", cap: "User-Flow" }, { src: "palphone/sections/03-sprint-plan.jpg", cap: "Drei-Sprint-Plan" }]
     },
     {
      n: "04 · Ergebnis",
      h: "Positives Feedback zu intuitiver Bedienung – und ein Team, das schneller liefert.",
      p: "Leitung der Brainstormings, enge Zusammenarbeit mit einem UX-Designer an der nächsten Version und mit dem Frontend-Team bei der Umsetzung machten das Produkt ruhiger und den Release reibungsloser.",
      img: "Finale UI · Dark",
-     shots: [{ src: "palphone-outcome.jpg", cap: "Finale UI · Dark" }]
+     shots: [{ src: "palphone/sections/04-outcome.jpg", cap: "Finale UI · Dark" }]
     },
     {
      n: "05 · Learnings",
@@ -139,7 +143,10 @@ export const PROJECTS: Project[] = [
   fg: "#EEF3E8",
   bgSoft: "#E9EEE3",
   year: "2025",
-  img: { hero: "marefat-hero.jpg", heroMobile: "marefat-hero-mobile.jpg" },
+  img: {
+   home: "marefat/cover/home-desktop.jpg",
+   homeMobile: "marefat/cover/home-mobile.jpg",
+  },
   en: {
    title: "Marefat Pilgrimage",
    tag: "Live booking website designed and built solo with AI — payments, services and 4 months of ongoing support.",
@@ -887,7 +894,20 @@ export const SKILL_ROWS = [
 ];
 export function localized(p: Project, lang: Lang) {
   const l = p[lang];
-  return { ...p, ...l, cardSrc: p.img.card ? IMG + p.img.card : undefined, heroSrc: p.img.hero ? IMG + p.img.hero : undefined, heroMobileSrc: p.img.heroMobile ? IMG + p.img.heroMobile : undefined, sections: l.sections.map((s, i) => ({ ...s, src: p.img.s?.[i] ? IMG + p.img.s[i] : undefined, shots: s.shots?.map(sh => ({ ...sh, src: IMG + sh.src })) })), meta: l.meta.map(([k, v]) => ({ k, v })), scopeLine: [l.meta[0][1], l.meta[2][1], l.meta[3][1]].join('  —  ') };
+  return {
+    ...p,
+    ...l,
+    homeSrc: p.img.home ? IMG + p.img.home : undefined,
+    homeMobileSrc: p.img.homeMobile ? IMG + p.img.homeMobile : undefined,
+    workSrc: p.img.work ? IMG + p.img.work : undefined,
+    sections: l.sections.map((s, i) => ({
+      ...s,
+      src: p.img.s?.[i] ? IMG + p.img.s[i] : undefined,
+      shots: s.shots?.map(sh => ({ ...sh, src: IMG + sh.src })),
+    })),
+    meta: l.meta.map(([k, v]) => ({ k, v })),
+    scopeLine: [l.meta[0][1], l.meta[2][1], l.meta[3][1]].join('  —  '),
+  };
 }
 export type LocalizedProject = ReturnType<typeof localized>;
 export function getProject(slug: string) { return PROJECTS.find(p => p.slug === slug); }

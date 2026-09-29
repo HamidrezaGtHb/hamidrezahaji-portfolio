@@ -22,7 +22,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
       </div>
     </section>
     <section className="gutter">
-      <Media bg={p.bg} fg={p.fg} caption={p.hero} ratio="wide" src={p.cardSrc} alt={p.title} priority className={s.hero + ' rise'} />
+      <Media bg={p.bg} fg={p.fg} caption={p.hero} ratio="wide" src={p.workSrc ?? p.homeSrc} alt={p.title} priority className={s.hero + ' rise'} />
     </section>
     <section className={s.body}>
       {p.sections.map(sec => (
