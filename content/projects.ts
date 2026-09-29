@@ -139,7 +139,7 @@ export const PROJECTS: Project[] = [
   fg: "#EEF3E8",
   bgSoft: "#E9EEE3",
   year: "2025",
-  img: {},
+  img: { hero: "marefat-hero.jpg" },
   en: {
    title: "Marefat Pilgrimage",
    tag: "Live booking website designed and built solo with AI — payments, services and 4 months of ongoing support.",
