@@ -4,6 +4,7 @@ import { t, LANGS, type Lang } from '@/content/i18n';
 import { PROJECTS, getProject, nextProject, localized } from '@/content/projects';
 import Reveal from '@/components/RevealItem';
 import Media from '@/components/ui/Media';
+import Rich from '@/components/ui/Rich';
 import s from './page.module.css';
 export function generateStaticParams() { return LANGS.flatMap(lang => PROJECTS.map(p => ({ lang, slug: p.slug }))); }
 export default async function ProjectPage({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
@@ -15,7 +16,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
       <Link href={'/' + lang + '/work'} className={s.back + ' rise'} style={{ '--d': '.05s' } as React.CSSProperties}>← {d.detail.back}</Link>
       <div className={s.titleRow}>
         <h1 className={'display ' + s.title + ' rise'} style={{ '--d': '.15s' } as React.CSSProperties}>{p.title}</h1>
-        <p className={s.tag + ' rise'} style={{ '--d': '.3s' } as React.CSSProperties}>{p.tag}</p>
+        <p className={s.tag + ' rise'} style={{ '--d': '.3s' } as React.CSSProperties}><Rich text={p.tag} /></p>
       </div>
       <div className={s.meta + ' rise'} style={{ '--d': '.45s' } as React.CSSProperties}>
         {p.meta.map(m => <div key={m.k}><div className={s.metaK}>{m.k}</div><div className={s.metaV}>{m.v}</div></div>)}

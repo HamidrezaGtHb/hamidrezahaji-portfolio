@@ -1,9 +1,10 @@
 import type { Lang } from './i18n';
 export type SectionShot = { src: string; cap: string; ratio?: 'landscape' | 'wide' | 'square' | 'still' | 'portrait' };
 export type ProjectSection = { n: string; h: string; p: string; img?: string; shots?: SectionShot[] };
-export type ProjectLocale = { title: string; tag: string; placeholder: string; hero: string; meta: [string, string][]; sections: ProjectSection[] };
+export type ProjectLocale = { title: string; tag: string; metaLine: string; coverAlt: string; hero: string; meta: [string, string][]; sections: ProjectSection[] };
 export type ProjectImages = { home?: string; homeMobile?: string; work?: string; s?: string[] };
-export type Project = { slug: string; bg: string; fg: string; bgSoft: string; year: string; img: ProjectImages; en: ProjectLocale; de: ProjectLocale };
+/** homeOrder: position in the home-page selection (1 = featured). Omit to keep a project /work-only. */
+export type Project = { slug: string; bg: string; fg: string; bgSoft: string; year: string; homeOrder?: number; img: ProjectImages; en: ProjectLocale; de: ProjectLocale };
 /** Optimized images live in /public/work/<slug>/{cover,sections}/. Originals in images/<slug>/. */
 export const IMG = '/work/';
 export const PROJECTS: Project[] = [
@@ -13,6 +14,7 @@ export const PROJECTS: Project[] = [
   fg: "#FBE9ED",
   bgSoft: "#F6E4E8",
   year: "2022",
+  homeOrder: 2,
   img: {
    home: "palphone/cover/home-desktop.jpg",
    homeMobile: "palphone/cover/home-mobile.jpg",
@@ -20,8 +22,9 @@ export const PROJECTS: Project[] = [
   },
   en: {
    title: "Palphone",
-   tag: "Anonymous voice-first conversations with real people — led design from strategy to shipped features.",
-   placeholder: "app screens · iOS + Android",
+   tag: "Led the UX/UI team: rebuilt navigation around active conversations and set up a shared component library.",
+   metaLine: "Voice app · iOS, Android · 2022",
+   coverAlt: "Palphone character-selection screen on a phone, between two people on a call",
    hero: "Palphone screens",
    meta: [
     [
@@ -59,7 +62,7 @@ export const PROJECTS: Project[] = [
     {
      n: "03 · Approach",
      h: "Find the shortest path from opening the app to being in a conversation.",
-     p: "I produced several directions and ran brainstorming sessions with a small technical team. We chose the flow that asks the least of the user before connecting them; chat stayed, video and image sharing were deliberately excluded; a feedback loop flags and removes fake users. The work was planned in three sprints covering phase 1, logo and character design.",
+     p: "I produced several directions and ran brainstorming sessions with a small technical team. We chose the flow that asks the least of the user before connecting them; chat stayed, video and image sharing were deliberately excluded; a feedback loop flags and removes fake users. The work was planned in three sprints covering the first release, logo and character design.",
      img: "User flow",
      shots: [{ src: "palphone/sections/03-user-flow.jpg", cap: "User flow" }, { src: "palphone/sections/03-sprint-plan.jpg", cap: "Three-sprint plan" }]
     },
@@ -79,8 +82,9 @@ export const PROJECTS: Project[] = [
   },
   de: {
    title: "Palphone",
-   tag: "Anonyme, sprachbasierte Gespräche mit echten Menschen – Design von der Strategie bis zum Release geleitet.",
-   placeholder: "App-Screens · iOS + Android",
+   tag: "UX/UI-Team geleitet: Navigation rund um aktive Gespräche neu aufgebaut und eine gemeinsame Komponentenbibliothek eingeführt.",
+   metaLine: "Sprach-App · iOS, Android · 2022",
+   coverAlt: "Palphone Charakterauswahl auf einem Smartphone, zwischen zwei telefonierenden Personen",
    hero: "Palphone-Screens",
    meta: [
     [
@@ -118,7 +122,7 @@ export const PROJECTS: Project[] = [
     {
      n: "03 · Ansatz",
      h: "Den kürzesten Weg vom App-Start bis ins Gespräch finden.",
-     p: "Ich erstellte mehrere Designs und führte Brainstorming-Sitzungen mit einem technischen Team. Entscheidung: der Flow, der vom Nutzer am wenigsten verlangt; Chat bleibt, Videoanrufe und Bildübertragung bewusst ausgeschlossen; Nutzer-Feedback identifiziert und entfernt unechte Profile. Geplant in drei Sprints: Phase 1, Logo, Charakterdesign.",
+     p: "Ich erstellte mehrere Designs und führte Brainstorming-Sitzungen mit einem technischen Team. Entscheidung: der Flow, der vom Nutzer am wenigsten verlangt; Chat bleibt, Videoanrufe und Bildübertragung bewusst ausgeschlossen; Nutzer-Feedback identifiziert und entfernt unechte Profile. Geplant in drei Sprints: erstes Release, Logo, Charakterdesign.",
      img: "User-Flow",
      shots: [{ src: "palphone/sections/03-user-flow.jpg", cap: "User-Flow" }, { src: "palphone/sections/03-sprint-plan.jpg", cap: "Drei-Sprint-Plan" }]
     },
@@ -143,14 +147,16 @@ export const PROJECTS: Project[] = [
   fg: "#EEF3E8",
   bgSoft: "#E9EEE3",
   year: "2025",
+  homeOrder: 1,
   img: {
    home: "marefat/cover/home-desktop.jpg",
    homeMobile: "marefat/cover/home-mobile.jpg",
   },
   en: {
    title: "Marefat Pilgrimage",
-   tag: "Live booking website designed and built solo with AI — payments, services and 4 months of ongoing support.",
-   placeholder: "website · desktop + mobile",
+   tag: "Designed, built and run solo with AI: booking, payments and ongoing support.",
+   metaLine: "Booking website · Web · 2025",
+   coverAlt: "Marefat Pilgrimage booking website on a laptop",
    hero: "hero: homepage on laptop + phone",
    meta: [
     [
@@ -193,8 +199,9 @@ export const PROJECTS: Project[] = [
   },
   de: {
    title: "Marefat Pilgrimage",
-   tag: "Live-Buchungswebsite – allein mit KI gestaltet und gebaut; Zahlungen, Services und 4 Monate laufender Support.",
-   placeholder: "Website · Desktop + Mobil",
+   tag: "Allein gestaltet, mit KI gebaut und betrieben: Buchung, Zahlungen und laufender Support.",
+   metaLine: "Buchungswebsite · Web · 2025",
+   coverAlt: "Buchungswebsite von Marefat Pilgrimage auf einem Laptop",
    hero: "Hero: Startseite auf Laptop + Phone",
    meta: [
     [
@@ -242,11 +249,13 @@ export const PROJECTS: Project[] = [
   fg: "#FBEFE8",
   bgSoft: "#F3E6DE",
   year: "2025",
+  homeOrder: 3,
   img: {},
   en: {
    title: "Leitner",
-   tag: "Persian–German vocabulary app with AI-generated cards — built because no other app supports Persian.",
-   placeholder: "app · phase 1 · flashcards",
+   tag: "Persian–German flashcards with AI-generated content and RTL/LTR switching. In daily use.",
+   metaLine: "Vocabulary app · Mobile web · 2025",
+   coverAlt: "Leitner app showing a German vocabulary card with its generated back",
    hero: "hero: card front/back on two phones",
    meta: [
     [
@@ -255,7 +264,7 @@ export const PROJECTS: Project[] = [
     ],
     [
      "Year",
-     "2025 · Phase 1"
+     "2025"
     ],
     [
      "Platform",
@@ -276,7 +285,7 @@ export const PROJECTS: Project[] = [
     {
      n: "02 · Design",
      h: "Zero-friction input, calm review sessions, bilingual typography that respects RTL.",
-     p: "Phase 1 focuses on the daily review loop and card generation. Mixed Persian/German type and right-to-left layout were the main UI challenges.",
+     p: "The current release focuses on the daily review loop and card generation. Mixed Persian/German type and right-to-left layout were the main UI challenges.",
      img: "UI: review session, RTL/LTR type"
     },
     {
@@ -289,8 +298,9 @@ export const PROJECTS: Project[] = [
   },
   de: {
    title: "Leitner",
-   tag: "Persisch–Deutsch Vokabel-App mit KI-generierten Karten – gebaut, weil keine andere App Persisch unterstützt.",
-   placeholder: "App · Phase 1 · Karteikarten",
+   tag: "Persisch-deutsche Karteikarten mit KI-generierten Inhalten und RTL/LTR-Umschaltung. Täglich im Einsatz.",
+   metaLine: "Vokabel-App · Mobile Web · 2025",
+   coverAlt: "Leitner-App mit einer deutschen Vokabelkarte und ihrer generierten Rückseite",
    hero: "Hero: Karte vorne/hinten auf zwei Phones",
    meta: [
     [
@@ -299,7 +309,7 @@ export const PROJECTS: Project[] = [
     ],
     [
      "Jahr",
-     "2025 · Phase 1"
+     "2025"
     ],
     [
      "Plattform",
@@ -320,7 +330,7 @@ export const PROJECTS: Project[] = [
     {
      n: "02 · Design",
      h: "Reibungslose Eingabe, ruhige Lernsessions, zweisprachige Typografie mit RTL.",
-     p: "Phase 1 konzentriert sich auf die tägliche Wiederholungsschleife und Kartengenerierung. Gemischte persisch/deutsche Schrift und Rechts-nach-links-Layout waren die UI-Herausforderungen.",
+     p: "Das aktuelle Release konzentriert sich auf die tägliche Wiederholungsschleife und Kartengenerierung. Gemischte persisch/deutsche Schrift und Rechts-nach-links-Layout waren die UI-Herausforderungen.",
      img: "UI: Lernsession, RTL/LTR Schrift"
     },
     {
@@ -342,7 +352,8 @@ export const PROJECTS: Project[] = [
   en: {
    title: "Payman",
    tag: "A super-app for taxi and truck drivers — services, shop, customer club, news, learning and chat in one place.",
-   placeholder: "app · driver super-app",
+   metaLine: "Driver super-app · iOS, Android · 2022",
+   coverAlt: "Payman driver super-app home screen",
    hero: "Payman screens",
    meta: [
     [
@@ -392,7 +403,8 @@ export const PROJECTS: Project[] = [
   de: {
    title: "Payman",
    tag: "Eine Super-App für Taxi- und LKW-Fahrer – Dienstleistungen, Shop, Kundenclub, News, Lernen und Chat an einem Ort.",
-   placeholder: "App · Fahrer-Super-App",
+   metaLine: "Fahrer-Super-App · iOS, Android · 2022",
+   coverAlt: "Startbildschirm der Payman Fahrer-Super-App",
    hero: "Payman-Screens",
    meta: [
     [
@@ -446,11 +458,13 @@ export const PROJECTS: Project[] = [
   fg: "#EEEAF6",
   bgSoft: "#ECE8F3",
   year: "2021",
+  homeOrder: 5,
   img: {},
   en: {
    title: "Tabassom",
-   tag: "Video-based trading education with certificates, for the PR & information arm of the Iranian stock exchange.",
-   placeholder: "web platform · light + dark",
+   tag: "Video courses and certificates for the stock exchange’s PR and information company: course discovery, learning paths and certification.",
+   metaLine: "Learning platform · Responsive web · 2021",
+   coverAlt: "Tabassom learning platform home page in light mode",
    hero: "Tabassom screens",
    meta: [
     [
@@ -499,8 +513,9 @@ export const PROJECTS: Project[] = [
   },
   de: {
    title: "Tabassom",
-   tag: "Video-basierte Trading-Schulung mit Zertifikaten – für die PR- und Informationsgesellschaft der iranischen Börse.",
-   placeholder: "Web-Plattform · Light + Dark",
+   tag: "Videokurse und Zertifikate für die PR- und Informationsgesellschaft der Börse: Kurssuche, Lernpfade und Zertifizierung.",
+   metaLine: "Lernplattform · Responsive Web · 2021",
+   coverAlt: "Startseite der Lernplattform Tabassom im Light-Mode",
    hero: "Tabassom-Screens",
    meta: [
     [
@@ -558,7 +573,8 @@ export const PROJECTS: Project[] = [
   en: {
    title: "Brand Identity",
    tag: "Logos and corporate identity for Golrang, digital companies and many start-ups — alongside product work since 2013.",
-   placeholder: "branding · logos",
+   metaLine: "Branding · Logos · {2013–}",
+   coverAlt: "Selection of logo marks and corporate identity applications",
    hero: "Identity work",
    meta: [
     [
@@ -596,7 +612,8 @@ export const PROJECTS: Project[] = [
   de: {
    title: "Identitätsdesign",
    tag: "Logos und Corporate Identity für Golrang, Digitalunternehmen und zahlreiche Start-ups – parallel zur Produktarbeit seit 2013.",
-   placeholder: "Branding · Logos",
+   metaLine: "Branding · Logos · {seit 2013}",
+   coverAlt: "Auswahl an Logos und Corporate-Design-Anwendungen",
    hero: "Identitätsarbeiten",
    meta: [
     [
@@ -642,7 +659,8 @@ export const PROJECTS: Project[] = [
   en: {
    title: "Phonepay",
    tag: "Digital wallet for the Iranian market — product design and visual brand strategy.",
-   placeholder: "app · wallet · brand",
+   metaLine: "Digital wallet · iOS, Android · {2018–20}",
+   coverAlt: "Phonepay wallet home screen next to its brand assets",
    hero: "hero: wallet home + brand assets",
    meta: [
     [
@@ -680,7 +698,8 @@ export const PROJECTS: Project[] = [
   de: {
    title: "Phonepay",
    tag: "Digitale Wallet für den iranischen Markt – Produktdesign und visuelle Markenstrategie.",
-   placeholder: "App · Wallet · Brand",
+   metaLine: "Digitale Wallet · iOS, Android · {2018–20}",
+   coverAlt: "Phonepay Wallet-Startbildschirm neben den Brand-Assets",
    hero: "Hero: Wallet-Home + Brand-Assets",
    meta: [
     [
@@ -726,7 +745,8 @@ export const PROJECTS: Project[] = [
   en: {
    title: "Carpino",
    tag: "Ride-sharing for Iran — driver and passenger apps with real-time tracking.",
-   placeholder: "app · driver + passenger",
+   metaLine: "Ride-sharing apps · iOS, Android · {2016–18}",
+   coverAlt: "Carpino driver and passenger apps showing a live trip map",
    hero: "hero: map view, two apps",
    meta: [
     [
@@ -764,7 +784,8 @@ export const PROJECTS: Project[] = [
   de: {
    title: "Carpino",
    tag: "Ride-Sharing für den Iran – Fahrer- und Fahrgast-Apps mit Echtzeit-Tracking.",
-   placeholder: "App · Fahrer + Fahrgast",
+   metaLine: "Ride-Sharing-Apps · iOS, Android · {2016–18}",
+   coverAlt: "Carpino Fahrer- und Fahrgast-Apps mit Live-Kartenansicht",
    hero: "Hero: Kartenansicht, zwei Apps",
    meta: [
     [
@@ -806,11 +827,13 @@ export const PROJECTS: Project[] = [
   fg: "#F7F0E2",
   bgSoft: "#F0EADC",
   year: "2015–16",
+  homeOrder: 4,
   img: {},
   en: {
    title: "FanavaCard",
-   tag: "Mobile payment app with 1M+ users — money transfers and bill payments on iOS & Android.",
-   placeholder: "app · payments · 1M+ users",
+   tag: "Payments for {1M+ users}: a simpler first-run flow and services grouped by what people came to do.",
+   metaLine: "Payment app · iOS, Android · {2015–16}",
+   coverAlt: "FanavaCard payment app showing the money-transfer flow",
    hero: "hero: transfer flow",
    meta: [
     [
@@ -847,8 +870,9 @@ export const PROJECTS: Project[] = [
   },
   de: {
    title: "FanavaCard",
-   tag: "Mobile-Payment-App mit 1 Mio.+ Nutzern – Überweisungen und Rechnungen auf iOS & Android.",
-   placeholder: "App · Payments · 1 Mio.+ Nutzer",
+   tag: "Zahlungen für {über 1 Mio. Nutzer}: einfacherer Einstieg und Services nach Nutzerzielen gruppiert.",
+   metaLine: "Zahlungs-App · iOS, Android · {2015–16}",
+   coverAlt: "FanavaCard-App mit dem Überweisungsflow",
    hero: "Hero: Überweisungsflow",
    meta: [
     [
@@ -906,9 +930,12 @@ export function localized(p: Project, lang: Lang) {
       shots: s.shots?.map(sh => ({ ...sh, src: IMG + sh.src })),
     })),
     meta: l.meta.map(([k, v]) => ({ k, v })),
-    scopeLine: [l.meta[0][1], l.meta[2][1], l.meta[3][1]].join('  —  '),
   };
 }
 export type LocalizedProject = ReturnType<typeof localized>;
+/** The home-page selection, ordered by strength rather than year. First one is featured. */
+export const HOME_PROJECTS = PROJECTS
+  .filter(p => p.homeOrder !== undefined)
+  .sort((a, b) => a.homeOrder! - b.homeOrder!);
 export function getProject(slug: string) { return PROJECTS.find(p => p.slug === slug); }
 export function nextProject(slug: string) { const i = PROJECTS.findIndex(p => p.slug === slug); return PROJECTS[(i + 1) % PROJECTS.length]; }

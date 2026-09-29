@@ -24,7 +24,7 @@ const I18N = {
         marquee: 'UX Research · UI Design · Design Systems · Branding · Prototyping · Next.js & AI-assisted build · Figma · ProtoPie · Schwetzingen, DE ·'
       },
       workIndex: { label: 'Work', title: 'All projects, one page.', sub: 'Nine projects across fintech, mobility, messaging, travel and brand — apps, platforms and identities, 2013 to today.' },
-      work: { label: 'Selected work', hint: 'Scroll', all: 'All work', title: 'Nine projects — from 1M-user fintech to a live site I run today.', sub: 'Apps, platforms and brands designed end-to-end — often as the only designer in the room.', view: 'View case' },
+      work: { all: 'All work', title: 'Selected work', sub: 'Apps, websites and the systems behind them — and now and then, the brand as well.', view: 'View case' },
       skills: { label: 'Skills', title: 'Strategy to pixels — and a bit of code.', sub: 'A multidisciplinary toolkit: research and UX, interface and systems, brand, 3D visualisation and enough front-end to prototype the real thing.',
         groups: [
           { name: 'UX & Research', items: 'User research · User flows · Wireframing · Prototyping · Usability testing · Information architecture' },
@@ -69,7 +69,7 @@ const I18N = {
         marquee: 'UX Research · UI Design · Designsysteme · Branding · Prototyping · Next.js & KI-gestützter Build · Figma · ProtoPie · Schwetzingen, DE ·'
       },
       workIndex: { label: 'Arbeiten', title: 'Alle Projekte, eine Seite.', sub: 'Neun Projekte aus Fintech, Mobilität, Messaging, Reise und Marke – Apps, Plattformen und Identitäten, 2013 bis heute.' },
-      work: { label: 'Ausgewählte Arbeiten', hint: 'Scrollen', all: 'Alle Arbeiten', title: 'Neun Projekte – von Fintech mit 1 Mio. Nutzern bis zu einer Website, die ich heute betreibe.', sub: 'Apps, Plattformen und Marken – End-to-End gestaltet, oft als einziger Designer im Team.', view: 'Case ansehen' },
+      work: { all: 'Alle Arbeiten', title: 'Ausgewählte Arbeiten', sub: 'Apps, Websites und die Systeme dahinter – und hin und wieder auch die Marke.', view: 'Case ansehen' },
       skills: { label: 'Skills', title: 'Von Strategie bis Pixel – und etwas Code.', sub: 'Ein multidisziplinäres Toolkit: Research und UX, Interface und Systeme, Brand, 3D-Visualisierung und genug Frontend, um das Echte zu prototypen.',
         groups: [
           { name: 'UX & Research', items: 'User Research · User Flows · Wireframing · Prototyping · Usability-Tests · Informationsarchitektur' },

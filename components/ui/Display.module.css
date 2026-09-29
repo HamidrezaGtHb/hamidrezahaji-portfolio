@@ -1,4 +1,5 @@
-.display{margin:0;font-family:var(--font-display-next),var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:var(--ls-display);line-height:var(--lh-display);text-wrap:balance}
+/* lining figures: the serif defaults to old-style, where "1" reads as a dotless i */
+.display{margin:0;font-family:var(--font-display-next),var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:var(--ls-display);line-height:var(--lh-display);text-wrap:balance;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
 .s{font-size:var(--fs-display-s);line-height:1.05}
 .m{font-size:var(--fs-display-m)}
 .l{font-size:var(--fs-display-l);line-height:.95}
