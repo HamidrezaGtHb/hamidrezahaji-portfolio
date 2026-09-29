@@ -3,8 +3,7 @@ export type SectionShot = { src: string; cap: string; ratio?: 'landscape' | 'wid
 export type ProjectSection = { n: string; h: string; p: string; img?: string; shots?: SectionShot[] };
 export type ProjectLocale = { title: string; tag: string; metaLine: string; coverAlt: string; hero: string; meta: [string, string][]; sections: ProjectSection[] };
 export type ProjectImages = { home?: string; homeMobile?: string; work?: string; s?: string[] };
-/** homeOrder: position in the home-page selection (1 = featured). Omit to keep a project /work-only. */
-export type Project = { slug: string; bg: string; fg: string; bgSoft: string; year: string; homeOrder?: number; img: ProjectImages; en: ProjectLocale; de: ProjectLocale };
+export type Project = { slug: string; bg: string; fg: string; bgSoft: string; year: string; img: ProjectImages; en: ProjectLocale; de: ProjectLocale };
 /** Optimized images live in /public/work/<slug>/{cover,sections}/. Originals in images/<slug>/. */
 export const IMG = '/work/';
 export const PROJECTS: Project[] = [
@@ -14,7 +13,6 @@ export const PROJECTS: Project[] = [
   fg: "#FBE9ED",
   bgSoft: "#F6E4E8",
   year: "2022",
-  homeOrder: 2,
   img: {
    home: "palphone/cover/home-desktop.jpg",
    homeMobile: "palphone/cover/home-mobile.jpg",
@@ -147,7 +145,6 @@ export const PROJECTS: Project[] = [
   fg: "#EEF3E8",
   bgSoft: "#E9EEE3",
   year: "2025",
-  homeOrder: 1,
   img: {
    home: "marefat/cover/home-desktop.jpg",
    homeMobile: "marefat/cover/home-mobile.jpg",
@@ -249,7 +246,6 @@ export const PROJECTS: Project[] = [
   fg: "#FBEFE8",
   bgSoft: "#F3E6DE",
   year: "2025",
-  homeOrder: 3,
   img: {},
   en: {
    title: "Leitner",
@@ -458,12 +454,11 @@ export const PROJECTS: Project[] = [
   fg: "#EEEAF6",
   bgSoft: "#ECE8F3",
   year: "2021",
-  homeOrder: 5,
   img: {},
   en: {
    title: "Tabassom",
    tag: "Video courses and certificates for the stock exchange’s PR and information company: course discovery, learning paths and certification.",
-   metaLine: "Learning platform · Responsive web · 2021",
+   metaLine: "Learning platform · Web · 2021",
    coverAlt: "Tabassom learning platform home page in light mode",
    hero: "Tabassom screens",
    meta: [
@@ -514,7 +509,7 @@ export const PROJECTS: Project[] = [
   de: {
    title: "Tabassom",
    tag: "Videokurse und Zertifikate für die PR- und Informationsgesellschaft der Börse: Kurssuche, Lernpfade und Zertifizierung.",
-   metaLine: "Lernplattform · Responsive Web · 2021",
+   metaLine: "Lernplattform · Web · 2021",
    coverAlt: "Startseite der Lernplattform Tabassom im Light-Mode",
    hero: "Tabassom-Screens",
    meta: [
@@ -698,7 +693,7 @@ export const PROJECTS: Project[] = [
   de: {
    title: "Phonepay",
    tag: "Digitale Wallet für den iranischen Markt – Produktdesign und visuelle Markenstrategie.",
-   metaLine: "Digitale Wallet · iOS, Android · {2018–20}",
+   metaLine: "Wallet · iOS, Android · {2018–20}",
    coverAlt: "Phonepay Wallet-Startbildschirm neben den Brand-Assets",
    hero: "Hero: Wallet-Home + Brand-Assets",
    meta: [
@@ -745,7 +740,7 @@ export const PROJECTS: Project[] = [
   en: {
    title: "Carpino",
    tag: "Ride-sharing for Iran — driver and passenger apps with real-time tracking.",
-   metaLine: "Ride-sharing apps · iOS, Android · {2016–18}",
+   metaLine: "Ride-sharing · iOS, Android · {2016–18}",
    coverAlt: "Carpino driver and passenger apps showing a live trip map",
    hero: "hero: map view, two apps",
    meta: [
@@ -784,7 +779,7 @@ export const PROJECTS: Project[] = [
   de: {
    title: "Carpino",
    tag: "Ride-Sharing für den Iran – Fahrer- und Fahrgast-Apps mit Echtzeit-Tracking.",
-   metaLine: "Ride-Sharing-Apps · iOS, Android · {2016–18}",
+   metaLine: "Ride-Sharing · iOS, Android · {2016–18}",
    coverAlt: "Carpino Fahrer- und Fahrgast-Apps mit Live-Kartenansicht",
    hero: "Hero: Kartenansicht, zwei Apps",
    meta: [
@@ -827,7 +822,6 @@ export const PROJECTS: Project[] = [
   fg: "#F7F0E2",
   bgSoft: "#F0EADC",
   year: "2015–16",
-  homeOrder: 4,
   img: {},
   en: {
    title: "FanavaCard",
@@ -933,9 +927,5 @@ export function localized(p: Project, lang: Lang) {
   };
 }
 export type LocalizedProject = ReturnType<typeof localized>;
-/** The home-page selection, ordered by strength rather than year. First one is featured. */
-export const HOME_PROJECTS = PROJECTS
-  .filter(p => p.homeOrder !== undefined)
-  .sort((a, b) => a.homeOrder! - b.homeOrder!);
 export function getProject(slug: string) { return PROJECTS.find(p => p.slug === slug); }
 export function nextProject(slug: string) { const i = PROJECTS.findIndex(p => p.slug === slug); return PROJECTS[(i + 1) % PROJECTS.length]; }

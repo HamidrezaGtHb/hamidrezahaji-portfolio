@@ -11,7 +11,9 @@
 .stripesSoft{background:repeating-linear-gradient(135deg,rgba(0,0,0,.05) 0 14px,transparent 14px 28px)}
 .caption{
   position:absolute;left:20px;bottom:18px;
-  display:inline-flex;align-items:center;width:fit-content;max-width:calc(100% - 40px);
+  /* inline-block, not flex: the caption is running text and may hold nowrap spans,
+     whose surrounding spaces a flex container would trim away. */
+  display:inline-block;width:fit-content;max-width:calc(100% - 40px);
   font-family:var(--font-mono,ui-monospace,Menlo,monospace);
   font-size:12px;font-weight:500;line-height:1.2;
   color:var(--paper);
@@ -22,7 +24,8 @@
 .captionSoft{color:var(--paper);background:rgba(20,19,17,.35)}
 .wide .caption{left:24px;bottom:20px}
 .badge{position:absolute;top:18px;right:var(--s-5);font-size:var(--fs-caption);font-weight:700;padding:6px 10px;border-radius:var(--pill);background:rgba(247,245,241,.92);color:var(--ink)}
-@media (max-width:900px){.caption{left:var(--s-4);bottom:14px}.wide .caption{left:20px;bottom:18px}.badge{top:14px;right:var(--s-4)}}
+/* Narrow cards: trim the chip so the longest meta line still fits on one row. */
+@media (max-width:900px){.caption{left:var(--s-4);bottom:14px;font-size:11px;max-width:calc(100% - 28px)}.wide .caption{left:20px;bottom:18px}.badge{top:14px;right:var(--s-4)}}
 .img{object-fit:cover;object-position:center top}
 .imgMobile{display:none}
 @media (max-width:900px){
