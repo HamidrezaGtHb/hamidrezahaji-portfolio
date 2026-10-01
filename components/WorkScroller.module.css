@@ -12,16 +12,19 @@
 
 /* —— Rail: hint + progress —— */
 .rail{
+  --rail-gap:clamp(16px,2.5vw,28px);
   position:absolute;left:var(--gutter);right:var(--gutter);bottom:clamp(20px,4vh,40px);
-  display:flex;align-items:center;gap:clamp(16px,2.5vw,28px);
+  display:flex;align-items:center;gap:var(--rail-gap);
   pointer-events:none;user-select:none;
 }
 .hint{
   display:inline-flex;align-items:center;gap:10px;flex:none;
+  max-width:240px;overflow:hidden;white-space:nowrap;
   color:var(--ink);
-  transition:opacity .45s var(--ease),transform .45s var(--ease);
+  transition:opacity .45s var(--ease),transform .45s var(--ease),max-width .6s var(--ease),margin .6s var(--ease);
 }
-.hint[data-hidden=true]{opacity:0;transform:translateY(6px)}
+/* Collapse its width too, so the bar then starts flush with the card edge. */
+.hint[data-hidden=true]{opacity:0;transform:translateY(6px);max-width:0;margin-right:calc(-1 * var(--rail-gap))}
 .hintIcon{display:inline-flex;align-items:center;gap:6px}
 .arrow{display:inline-block;font-size:14px;font-weight:700;animation:hintArrow 1.6s var(--ease) infinite}
 .hintLabelFine,.hintLabelCoarse{
@@ -30,6 +33,10 @@
 }
 .bar{flex:1;min-width:0;height:1px;background:var(--line);position:relative;overflow:hidden}
 .fill{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left center;will-change:transform}
+.bar{transition:opacity .5s var(--ease)}
+/* End of the pinned range: the bar retracts left→right and fades before the section scrolls away. */
+.rail[data-done=true] .bar{opacity:0}
+.rail[data-done=true] .fill{transform:scaleX(0)!important;transform-origin:right center;transition:transform .55s var(--ease)}
 
 /* Desktop (fine pointer): mouse + Scroll */
 .iconSwipe,.hintLabelCoarse{display:none}

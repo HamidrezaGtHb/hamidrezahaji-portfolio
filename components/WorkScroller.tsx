@@ -14,6 +14,8 @@ import s from './WorkScroller.module.css';
 const TAU = 110;
 /** Progress above which the scroll hint fades out (pinned mode). */
 const HINT_HIDE = 0.02;
+/** Progress at which the rail collapses before the section unpins (pinned mode). */
+const RAIL_DONE = 0.98;
 /** Touch / reduced-motion: native scroll-snap carousel instead of the pinned driver. */
 const NATIVE_MQ = '(pointer:coarse), (prefers-reduced-motion:reduce)';
 
@@ -26,10 +28,11 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
   const sticky = useRef<HTMLDivElement>(null);
   const hint = useRef<HTMLDivElement>(null);
   const fill = useRef<HTMLDivElement>(null);
+  const rail = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const o = outer.current, tr = track.current, st = sticky.current;
-    const hn = hint.current, fl = fill.current;
+    const hn = hint.current, fl = fill.current, rl = rail.current;
     if (!o || !tr || !st) return;
 
     let hidden = false;
@@ -73,7 +76,13 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
       return { travel, max, p };
     };
     const draw = () => { tr.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)'; };
-    const apply = (p: number) => { setProgress(p); setHint(p > HINT_HIDE); };
+    let done = false;
+    const apply = (p: number) => {
+      setProgress(p);
+      setHint(p > HINT_HIDE);
+      const next = p >= RAIL_DONE;
+      if (rl && next !== done) { done = next; rl.dataset.done = next ? 'true' : 'false'; }
+    };
     const tick = (now: number) => {
       const dt = Math.min(64, now - last); last = now;
       const m = metrics();
@@ -115,7 +124,7 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
           {PROJECTS.map((p, i) => <ProjectCard key={p.slug} p={localized(p, lang)} lang={lang} view={d.work.view} priority={i === 0} />)}
           <div className={s.tail} />
         </div>
-        <div className={s.rail} aria-hidden="true">
+        <div ref={rail} className={s.rail} data-done="false" aria-hidden="true">
           <div ref={hint} className={s.hint} data-hidden="false">
             <span className={s.hintIcon}>
               <svg className={s.iconMouse} viewBox="0 0 24 36" width="22" height="34" fill="none">
