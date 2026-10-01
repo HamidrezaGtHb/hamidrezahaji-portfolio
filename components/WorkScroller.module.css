@@ -27,29 +27,23 @@
 .hint[data-hidden=true]{opacity:0;transform:translateY(6px);max-width:0;margin-right:calc(-1 * var(--rail-gap))}
 .hintIcon{display:inline-flex;align-items:center;gap:6px}
 .arrow{display:inline-block;font-size:14px;font-weight:700;animation:hintArrow 1.6s var(--ease) infinite}
-.hintLabelFine,.hintLabelCoarse{
+.hintLabel{
   font-family:var(--font-mono,ui-monospace,Menlo,monospace);
   font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
 }
-.bar{flex:1;min-width:0;height:1px;background:var(--line);position:relative;overflow:hidden}
+.bar{flex:1;min-width:0;height:1px;background:var(--line);position:relative;overflow:hidden;transition:opacity .5s var(--ease)}
 .fill{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left center;will-change:transform}
-.bar{transition:opacity .5s var(--ease)}
 /* End of the pinned range: the bar retracts left→right and fades before the section scrolls away. */
 .rail[data-done=true] .bar{opacity:0}
 .rail[data-done=true] .fill{transform:scaleX(0)!important;transform-origin:right center;transition:transform .55s var(--ease)}
 
-/* Desktop (fine pointer): mouse + Scroll */
-.iconSwipe,.hintLabelCoarse{display:none}
 .iconMouse{display:block}
-.hintLabelFine{display:inline}
 .wheel{animation:hintWheel 1.6s var(--ease) infinite}
 
-/* Touch (coarse pointer): swipe pill + Swipe — also used inside the native block below */
+/* Touch tablets in pinned mode: drop the mouse, point the arrow down (scroll, don't swipe). */
 @media (pointer:coarse){
-  .iconMouse,.hintLabelFine{display:none}
-  .iconSwipe{display:block}
-  .hintLabelCoarse{display:inline}
-  .dot{animation:hintDot 1.6s var(--ease) infinite}
+  .iconMouse{display:none}
+  .arrow{transform:rotate(90deg);animation-name:hintArrowDown}
 }
 
 @keyframes hintWheel{
@@ -57,41 +51,29 @@
   50%{transform:translateY(10px);opacity:.2}
   100%{transform:translateY(0);opacity:1}
 }
-@keyframes hintDot{
-  0%,10%{transform:translateX(0);opacity:1}
-  55%{transform:translateX(-16px);opacity:.25}
-  100%{transform:translateX(0);opacity:1}
-}
 @keyframes hintArrow{
   0%,20%{transform:translateX(0);opacity:.45}
   55%{transform:translateX(5px);opacity:1}
   100%{transform:translateX(0);opacity:.45}
 }
-
-/* —— Native swipe carousel: touch devices and reduced motion —— */
-@media (pointer:coarse), (prefers-reduced-motion:reduce){
-  .outer{height:auto}
-  .sticky{
-    position:static;height:auto;display:block;
-    padding-block:var(--section-y);
-    overflow-x:auto;overflow-y:hidden;
-    scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);
-    overscroll-behavior-x:contain;
-    scrollbar-width:none;
-  }
-  .sticky::-webkit-scrollbar{display:none}
-  .head{position:static;margin:0 var(--gutter) clamp(32px,5vh,64px)}
-  .track{transform:none!important;will-change:auto;align-items:flex-start}
-  .intro{width:min(78vw,380px);padding-bottom:0;scroll-snap-align:start}
-  .track > a{scroll-snap-align:start}
-  .rail{position:static;margin:clamp(24px,4vh,40px) var(--gutter) 0}
-  /* Prefer swipe affordance whenever this block is active (covers reduced-motion on fine pointers). */
-  .iconMouse,.hintLabelFine{display:none}
-  .iconSwipe{display:block}
-  .hintLabelCoarse{display:inline}
-  .dot{animation:hintDot 1.6s var(--ease) infinite}
+@keyframes hintArrowDown{
+  0%,20%{transform:rotate(90deg) translateX(0);opacity:.45}
+  55%{transform:rotate(90deg) translateX(5px);opacity:1}
+  100%{transform:rotate(90deg) translateX(0);opacity:.45}
 }
 
-@media (prefers-reduced-motion:reduce){
-  .wheel,.dot,.arrow{animation:none!important}
+/* —— Phone / reduced-motion: plain vertical card stack —— */
+@media (max-width:767px), (prefers-reduced-motion:reduce){
+  .outer{height:auto}
+  .sticky{position:static;height:auto;display:block;overflow:visible;padding-block:var(--section-y)}
+  .head{position:static;margin:0 var(--gutter) clamp(32px,5vh,64px)}
+  .track{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));
+    gap:clamp(40px,6vh,64px) clamp(24px,3vw,48px);
+    width:auto;transform:none!important;will-change:auto;align-items:start;
+  }
+  .intro{grid-column:1/-1;width:auto;padding-bottom:0}
+  .track > a{width:auto}
+  .tail,.rail{display:none}
 }

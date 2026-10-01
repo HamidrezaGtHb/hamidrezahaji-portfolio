@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PROJECTS, localized } from '@/content/projects';
 import type { Lang, Dict } from '@/content/i18n';
 import ProjectCard from './ProjectCard';
@@ -16,12 +16,11 @@ const TAU = 110;
 const HINT_HIDE = 0.02;
 /** Progress at which the rail collapses before the section unpins (pinned mode). */
 const RAIL_DONE = 0.98;
-/** Touch / reduced-motion: native scroll-snap carousel instead of the pinned driver. */
-const NATIVE_MQ = '(pointer:coarse), (prefers-reduced-motion:reduce)';
+/** Phone / reduced-motion: plain vertical card stack. Tablets stay pinned like desktop. */
+const STACK_MQ = '(max-width:767px), (prefers-reduced-motion:reduce)';
 
-/** Desktop: sticky vertical scroll drives an eased horizontal track.
- *  Touch / reduced-motion: a native overflow-x scroll-snap carousel.
- *  No horizontal→vertical remapping — one scroll source per mode. */
+/** Desktop and tablet: sticky vertical scroll drives an eased horizontal track.
+ *  Phone and reduced-motion: a plain vertical grid of cards. */
 export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
   const outer = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
@@ -29,13 +28,27 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
   const hint = useRef<HTMLDivElement>(null);
   const fill = useRef<HTMLDivElement>(null);
   const rail = useRef<HTMLDivElement>(null);
+  const [stack, setStack] = useState(false);
+
+  useEffect(() => {
+    const mq = matchMedia(STACK_MQ);
+    const sync = () => setStack(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
 
   useEffect(() => {
     const o = outer.current, tr = track.current, st = sticky.current;
     const hn = hint.current, fl = fill.current, rl = rail.current;
     if (!o || !tr || !st) return;
 
-    let hidden = false;
+    if (stack) {
+      tr.style.transform = '';
+      return;
+    }
+
+    let hidden = false, done = false;
     const setHint = (hide: boolean) => {
       if (!hn || hide === hidden) return;
       hidden = hide;
@@ -44,29 +57,6 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
     const setProgress = (p: number) => {
       if (fl) fl.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)).toFixed(4) + ')';
     };
-
-    // —— Native swipe carousel (touch / reduced motion) ——
-    if (matchMedia(NATIVE_MQ).matches) {
-      let raf = 0;
-      const sync = () => {
-        raf = 0;
-        const max = Math.max(0, st.scrollWidth - st.clientWidth);
-        const p = max > 0 ? st.scrollLeft / max : 0;
-        setProgress(p);
-        setHint(st.scrollLeft > 24);
-      };
-      const onScroll = () => { if (!raf) raf = requestAnimationFrame(sync); };
-      sync();
-      st.addEventListener('scroll', onScroll, { passive: true });
-      addEventListener('resize', sync);
-      return () => {
-        cancelAnimationFrame(raf);
-        st.removeEventListener('scroll', onScroll);
-        removeEventListener('resize', sync);
-      };
-    }
-
-    // —— Pinned desktop driver ——
     let x = 0, raf = 0, last = 0, inView = false;
     const metrics = () => {
       const r = o.getBoundingClientRect();
@@ -76,7 +66,6 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
       return { travel, max, p };
     };
     const draw = () => { tr.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)'; };
-    let done = false;
     const apply = (p: number) => {
       setProgress(p);
       setHint(p > HINT_HIDE);
@@ -107,7 +96,7 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
       io.disconnect(); cancelAnimationFrame(raf);
       removeEventListener('scroll', wake); removeEventListener('resize', jump);
     };
-  }, []);
+  }, [stack]);
 
   return (<section id="work">
     <div ref={outer} className={s.outer}>
@@ -131,14 +120,9 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
                 <rect x="1.5" y="1.5" width="21" height="33" rx="10.5" stroke="currentColor" strokeWidth="1.5" />
                 <circle className={s.wheel} cx="12" cy="10" r="1.8" fill="currentColor" />
               </svg>
-              <svg className={s.iconSwipe} viewBox="0 0 40 16" width="36" height="14" fill="none">
-                <rect x="1" y="5" width="38" height="6" rx="3" stroke="currentColor" strokeWidth="1.5" />
-                <circle className={s.dot} cx="28" cy="8" r="2.2" fill="currentColor" />
-              </svg>
               <span className={s.arrow}>→</span>
             </span>
-            <span className={s.hintLabelFine}>{d.work.hint}</span>
-            <span className={s.hintLabelCoarse}>{d.work.hintTouch}</span>
+            <span className={s.hintLabel}>{d.work.hint}</span>
           </div>
           <div className={s.bar}><div ref={fill} className={s.fill} /></div>
         </div>
