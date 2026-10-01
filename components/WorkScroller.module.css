@@ -66,11 +66,11 @@
 @media (max-width:767px), (prefers-reduced-motion:reduce){
   .outer{height:auto}
   .sticky{position:static;height:auto;display:block;overflow:visible;padding-block:var(--section-y)}
-  .head{position:static;margin:0 var(--gutter) clamp(32px,5vh,64px)}
+  .head{position:static;margin:0 var(--gutter) var(--head-gap)}
   .track{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));
-    gap:clamp(40px,6vh,64px) clamp(24px,3vw,48px);
+    gap:var(--head-gap) clamp(24px,3vw,48px);
     width:auto;transform:none!important;will-change:auto;align-items:start;
   }
   .intro{grid-column:1/-1;width:auto;padding-bottom:0}

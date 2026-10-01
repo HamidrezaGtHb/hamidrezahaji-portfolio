@@ -28,7 +28,7 @@ export default async function About({ params }: { params: Promise<{ lang: Lang }
     </section>
     <section className={s.beyond}>
       <div className={s.beyondHead}>
-        <Reveal><h2 className="label" style={{ marginBottom: 16 }}>{d.about.beyondLabel}</h2><p className={'display ' + s.beyondTitle}>{d.about.beyondTitle}</p></Reveal>
+        <Reveal><h2 className={'label ' + s.sectionLabel}>{d.about.beyondLabel}</h2><p className={'display ' + s.beyondTitle}>{d.about.beyondTitle}</p></Reveal>
         <Reveal className={s.beyondSub}><p style={{ margin: 0 }}>{d.about.beyondSub}</p></Reveal>
       </div>
       <div className={s.beyondGrid}>{d.about.beyond.map(b => (

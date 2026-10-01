@@ -7,7 +7,7 @@ export default function Resume({ d }: { d: Dict }) {
   return (<>
     <section id="skills" className={s.skills}>
       <div className={s.skillsHead}>
-        <Reveal><h2 className="label" style={{ marginBottom: 16 }}>{d.skills.label}</h2><p className={'display ' + s.skillsTitle}>{d.skills.title}</p></Reveal>
+        <Reveal><h2 className={'label ' + s.label}>{d.skills.label}</h2><p className={'display ' + s.skillsTitle}>{d.skills.title}</p></Reveal>
         <Reveal className={s.skillsSub}><p style={{ margin: 0 }}>{d.skills.sub}</p></Reveal>
       </div>
       <SkillRows />
@@ -16,7 +16,7 @@ export default function Resume({ d }: { d: Dict }) {
     <section id="experience" className={s.exp}>
       <div className={s.expGrid}>
         <Reveal>
-          <h2 className="label" style={{ marginBottom: 16 }}>{d.exp.label}</h2>
+          <h2 className={'label ' + s.label}>{d.exp.label}</h2>
           <p className={'display ' + s.expTitle}>{d.exp.title}</p>
           <p className={s.expSub}>{d.exp.sub}</p>
           <div className={s.edu}>{d.exp.edu.map(e => <div key={e.y} className={s.eduRow}><span className={s.eduY}>{e.y}</span><span>{e.t}</span></div>)}</div>

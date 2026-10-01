@@ -51,10 +51,25 @@
   --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:24px;
   --s-7:32px; --s-8:40px; --s-9:56px; --s-10:72px;
   --gutter:clamp(20px,4vw,56px);                 /* page side padding    */
-  --section-y:clamp(64px,10vh,120px);            /* section rhythm       */
-  --section-y-sm:clamp(40px,6vh,72px);
-  --page-top:clamp(100px,14vh,150px);            /* clears the fixed nav */
   --stack:clamp(20px,3vh,32px);
+
+  /* — Section rhythm ———————————————————————————————
+     Every section is a "chapter": a hairline on top, then the
+     same padding above and below its content. Sections never
+     add margin to each other, so the gap between two chapters
+     is always 2 × --section-y split by the line.
+       --page-top      first section of a page (clears the nav)
+       --section-y     padding-block of every section
+       --section-y-sm  compact sections (next-project, footer card)
+       --head-gap      section head (label + title) → its content
+       --block-gap     between major blocks inside one section
+       --label-gap     label → display title                    */
+  --page-top:clamp(112px,16vh,160px);
+  --section-y:clamp(80px,12vh,144px);
+  --section-y-sm:clamp(56px,8vh,96px);
+  --head-gap:clamp(40px,6vh,72px);
+  --block-gap:clamp(56px,9vh,112px);
+  --label-gap:var(--s-4);
 
   /* — Radius ——————————————————————————————————————— */
   --r-sm:6px; --r:8px; --r-lg:12px; --r-xl:24px; --pill:999px;
