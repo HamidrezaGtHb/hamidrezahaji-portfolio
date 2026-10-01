@@ -1,6 +1,6 @@
 .outer{height:420vh;position:relative}
 @media (max-width:900px){.outer{height:520svh}}
-.sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;touch-action:pan-y}
+.sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .head{position:absolute;top:clamp(72px,10vh,96px);left:var(--gutter);right:var(--gutter);display:flex;justify-content:space-between;align-items:baseline}
 .all{font-size:var(--fs-label);font-weight:700;border-bottom:1px solid var(--line-strong);padding-bottom:2px}
 .all:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2px}
@@ -10,29 +10,34 @@
 .sub{margin:0;font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink-2);max-width:380px}
 .tail{width:10vw;flex:none}
 
-/* —— Scroll / swipe hint —— */
-.hint{
-  position:absolute;left:var(--gutter);bottom:clamp(20px,4vh,40px);
-  display:inline-flex;align-items:center;gap:10px;
-  color:var(--muted);
+/* —— Rail: hint + progress —— */
+.rail{
+  position:absolute;left:var(--gutter);right:var(--gutter);bottom:clamp(20px,4vh,40px);
+  display:flex;align-items:center;gap:clamp(16px,2.5vw,28px);
   pointer-events:none;user-select:none;
+}
+.hint{
+  display:inline-flex;align-items:center;gap:10px;flex:none;
+  color:var(--ink);
   transition:opacity .45s var(--ease),transform .45s var(--ease);
 }
 .hint[data-hidden=true]{opacity:0;transform:translateY(6px)}
 .hintIcon{display:inline-flex;align-items:center;gap:6px}
-.arrow{display:inline-block;font-size:13px;font-weight:700;animation:hintArrow 1.6s var(--ease) infinite}
+.arrow{display:inline-block;font-size:14px;font-weight:700;animation:hintArrow 1.6s var(--ease) infinite}
 .hintLabelFine,.hintLabelCoarse{
   font-family:var(--font-mono,ui-monospace,Menlo,monospace);
   font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
 }
+.bar{flex:1;min-width:0;height:1px;background:var(--line);position:relative;overflow:hidden}
+.fill{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left center;will-change:transform}
 
-/* Fine pointer (mouse/trackpad): show mouse + "Scroll" */
+/* Desktop (fine pointer): mouse + Scroll */
 .iconSwipe,.hintLabelCoarse{display:none}
 .iconMouse{display:block}
 .hintLabelFine{display:inline}
 .wheel{animation:hintWheel 1.6s var(--ease) infinite}
 
-/* Coarse pointer (touch): show swipe pill + "Swipe or scroll" */
+/* Touch (coarse pointer): swipe pill + Swipe — also used inside the native block below */
 @media (pointer:coarse){
   .iconMouse,.hintLabelFine{display:none}
   .iconSwipe{display:block}
@@ -42,7 +47,7 @@
 
 @keyframes hintWheel{
   0%,15%{transform:translateY(0);opacity:1}
-  50%{transform:translateY(8px);opacity:.2}
+  50%{transform:translateY(10px);opacity:.2}
   100%{transform:translateY(0);opacity:1}
 }
 @keyframes hintDot{
@@ -56,12 +61,30 @@
   100%{transform:translateX(0);opacity:.45}
 }
 
-/* No transform driver runs under reduced motion, so the track has to scroll natively. */
-@media (prefers-reduced-motion:reduce){
+/* —— Native swipe carousel: touch devices and reduced motion —— */
+@media (pointer:coarse), (prefers-reduced-motion:reduce){
   .outer{height:auto}
-  .sticky{position:static;height:auto;display:block;padding-block:var(--section-y);overflow-x:auto;overflow-y:hidden}
+  .sticky{
+    position:static;height:auto;display:block;
+    padding-block:var(--section-y);
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
+  }
+  .sticky::-webkit-scrollbar{display:none}
   .head{position:static;margin:0 var(--gutter) clamp(32px,5vh,64px)}
   .track{transform:none!important;will-change:auto;align-items:flex-start}
-  .intro{padding-bottom:0}
-  .hint,.wheel,.dot,.arrow{display:none!important;animation:none!important}
+  .intro{width:min(78vw,380px);padding-bottom:0;scroll-snap-align:start}
+  .track > a{scroll-snap-align:start}
+  .rail{position:static;margin:clamp(24px,4vh,40px) var(--gutter) 0}
+  /* Prefer swipe affordance whenever this block is active (covers reduced-motion on fine pointers). */
+  .iconMouse,.hintLabelFine{display:none}
+  .iconSwipe{display:block}
+  .hintLabelCoarse{display:inline}
+  .dot{animation:hintDot 1.6s var(--ease) infinite}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .wheel,.dot,.arrow{animation:none!important}
 }
