@@ -5,9 +5,10 @@ import Intro from '@/components/Intro';
 import Progress from '@/components/Progress';
 import RevealProvider from '@/components/Reveal';
 import HtmlLang from '@/components/HtmlLang';
+import ScrollTopOnReload from '@/components/ScrollTopOnReload';
 export function generateStaticParams() { return LANGS.map(lang => ({ lang })); }
 export default async function LangLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!LANGS.includes(lang as Lang)) notFound();
-  return (<RevealProvider><HtmlLang lang={lang} /><Progress /><Intro /><Nav lang={lang as Lang} />{children}</RevealProvider>);
+  return (<RevealProvider><HtmlLang lang={lang} /><ScrollTopOnReload /><Progress /><Intro /><Nav lang={lang as Lang} />{children}</RevealProvider>);
 }

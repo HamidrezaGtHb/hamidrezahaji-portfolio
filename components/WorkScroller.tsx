@@ -97,8 +97,8 @@ export default function WorkScroller({ lang, d }: { lang: Lang; d: Dict }) {
       if (axis !== 'x') return;
       const m = metrics();
       if (!m.pinned || m.max === 0 || Math.abs(vx) < 0.05) return;
-      // ~180ms of remaining velocity as a short glide.
-      scrollBy({ top: vx * 180 * (m.travel / m.max), behavior: 'smooth' });
+      // ~180ms of remaining velocity as a short glide (instant page scroll; the track eases).
+      scrollBy({ top: vx * 180 * (m.travel / m.max), behavior: 'instant' });
     };
 
     const io = new IntersectionObserver(([e]) => {
