@@ -20,7 +20,7 @@ const I18N = {
         status: 'Open to Product / UX-UI roles in Germany',
         tagline: 'Designing everyday experiences with empathy.',
         intro: 'Product & UX/UI designer with 8+ years across fintech, mobility and messaging startups — plus a branding background. I lead from research to design system, and I build with code and AI when it gets the product shipped.',
-        ctaWork: 'Selected work', ctaCv: 'Get in touch',
+        ctaCv: 'Get in touch',
         marquee: 'UX Research · UI Design · Design Systems · Branding · Prototyping · Next.js & AI-assisted build · Figma · ProtoPie · Schwetzingen, DE ·'
       },
       workIndex: { label: 'Work', title: 'All projects, one page.', sub: 'Nine projects across fintech, mobility, messaging, travel and brand — apps, platforms and identities, 2013 to today.' },
@@ -65,7 +65,7 @@ const I18N = {
         status: 'Offen für Product / UX-UI Rollen in Deutschland',
         tagline: 'Alltagserlebnisse mit Empathie gestalten.',
         intro: 'Product & UX/UI Designer mit 8+ Jahren Erfahrung in Fintech-, Mobilitäts- und Messaging-Startups — plus Branding-Hintergrund. Ich führe von der Research bis zum Designsystem und baue mit Code und KI, wenn es das Produkt schneller live bringt.',
-        ctaWork: 'Ausgewählte Arbeiten', ctaCv: 'Kontakt aufnehmen',
+        ctaCv: 'Kontakt aufnehmen',
         marquee: 'UX Research · UI Design · Designsysteme · Branding · Prototyping · Next.js & KI-gestützter Build · Figma · ProtoPie · Schwetzingen, DE ·'
       },
       workIndex: { label: 'Arbeiten', title: 'Alle Projekte, eine Seite.', sub: 'Neun Projekte aus Fintech, Mobilität, Messaging, Reise und Marke – Apps, Plattformen und Identitäten, 2013 bis heute.' },
