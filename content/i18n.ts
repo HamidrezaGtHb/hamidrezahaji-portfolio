@@ -24,7 +24,7 @@ const I18N = {
         marquee: 'UX Research · UI Design · Design Systems · Branding · Prototyping · Next.js & AI-assisted build · Figma · ProtoPie · Schwetzingen, DE ·'
       },
       workIndex: { label: 'Work', title: 'All projects, one page.', sub: 'Nine projects across fintech, mobility, messaging, travel and brand — apps, platforms and identities, 2013 to today.' },
-      work: { label: 'Selected work', all: 'All work', title: 'Screens, systems and sometimes the brand behind them.', sub: 'From information architecture and user flows to design system and brand — designed, shipped, and some still run by me.', view: 'View case' },
+      work: { label: 'Selected work', all: 'All work', title: 'Screens, systems and sometimes the brand behind them.', sub: 'From information architecture and user flows to design system and brand — designed, shipped, and some still run by me.', view: 'View case', hint: 'Scroll', hintTouch: 'Swipe or scroll' },
       skills: { label: 'Skills', title: 'Strategy to pixels — and a bit of code.', sub: 'A multidisciplinary toolkit: research and UX, interface and systems, brand, 3D visualisation and enough front-end to prototype the real thing.',
         groups: [
           { name: 'UX & Research', items: 'User research · User flows · Wireframing · Prototyping · Usability testing · Information architecture' },
@@ -69,7 +69,7 @@ const I18N = {
         marquee: 'UX Research · UI Design · Designsysteme · Branding · Prototyping · Next.js & KI-gestützter Build · Figma · ProtoPie · Schwetzingen, DE ·'
       },
       workIndex: { label: 'Arbeiten', title: 'Alle Projekte, eine Seite.', sub: 'Neun Projekte aus Fintech, Mobilität, Messaging, Reise und Marke – Apps, Plattformen und Identitäten, 2013 bis heute.' },
-      work: { label: 'Ausgewählte Arbeiten', all: 'Alle Arbeiten', title: 'Screens, Systeme und manchmal die Marke dahinter.', sub: 'Von Informationsarchitektur und User Flows bis zu Designsystem und Marke – gestaltet, ausgeliefert, teils weiter betreut.', view: 'Case ansehen' },
+      work: { label: 'Ausgewählte Arbeiten', all: 'Alle Arbeiten', title: 'Screens, Systeme und manchmal die Marke dahinter.', sub: 'Von Informationsarchitektur und User Flows bis zu Designsystem und Marke – gestaltet, ausgeliefert, teils weiter betreut.', view: 'Case ansehen', hint: 'Scrollen', hintTouch: 'Wischen oder scrollen' },
       skills: { label: 'Skills', title: 'Von Strategie bis Pixel – und etwas Code.', sub: 'Ein multidisziplinäres Toolkit: Research und UX, Interface und Systeme, Brand, 3D-Visualisierung und genug Frontend, um das Echte zu prototypen.',
         groups: [
           { name: 'UX & Research', items: 'User Research · User Flows · Wireframing · Prototyping · Usability-Tests · Informationsarchitektur' },
