@@ -5,10 +5,11 @@ import LocalTime from './LocalTime';
 import Button from './ui/Button';
 import Display from './ui/Display';
 import Label from './ui/Label';
-import { CV, CV_DOWNLOAD } from '@/content/cv';
+import { cv } from '@/content/cv';
 import s from './Footer.module.css';
 /** Inverted contact footer — identical on every page. */
-export default function Footer({ d, id = 'contact' }: { lang?: Lang; d: Dict; id?: string }) {
+export default function Footer({ lang = 'en', d, id = 'contact' }: { lang?: Lang; d: Dict; id?: string }) {
+  const resume = cv(lang);
   return (<section id={id} className={s.footer}>
     <div className={s.grid}>
       <Reveal className={s.text}>
@@ -19,7 +20,7 @@ export default function Footer({ d, id = 'contact' }: { lang?: Lang; d: Dict; id
         </div>
         <div className={s.actions}>
           <div className={s.ctaRow}>
-            <Button href={CV} download={CV_DOWNLOAD} variant="inverted">{d.contact.resume} ↓</Button>
+            <Button href={resume.href} download={resume.download} variant="inverted">{d.contact.resume} ↓</Button>
             <a href="mailto:hamidrezahaji.uix@gmail.com" className={s.mail}>hamidrezahaji.uix@gmail.com</a>
           </div>
           <div className={s.links}>

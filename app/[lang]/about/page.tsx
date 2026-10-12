@@ -4,10 +4,10 @@ import { t, type Lang } from '@/content/i18n';
 import Footer from '@/components/Footer';
 import Reveal from '@/components/RevealItem';
 import Media from '@/components/ui/Media';
-import { CV, CV_DOWNLOAD } from '@/content/cv';
+import { cv } from '@/content/cv';
 import s from './page.module.css';
 export default async function About({ params }: { params: Promise<{ lang: Lang }> }) {
-  const { lang } = await params; const d = t(lang);
+  const { lang } = await params; const d = t(lang); const resume = cv(lang);
   const css = (delay: string) => ({ '--d': delay } as React.CSSProperties);
   return (<main className={s.main}>
     <section className={s.intro}>
@@ -18,7 +18,7 @@ export default async function About({ params }: { params: Promise<{ lang: Lang }
           <div className={'rise ' + s.story} style={css('.3s')}>{d.about.story.map((p, i) => <p key={i}>{p}</p>)}</div>
           <div className={'rise ' + s.ctas} style={css('.45s')}>
             <Link href="#contact-about" className="pill pill--solid">{d.hero.ctaCv}</Link>
-            <a href={CV} download={CV_DOWNLOAD} target="_blank" rel="noreferrer" className="pill pill--ghost">{d.contact.resume} <small>↓</small></a>
+            <a href={resume.href} download={resume.download} target="_blank" rel="noreferrer" className="pill pill--ghost">{d.contact.resume} <small>↓</small></a>
             <a href="https://linkedin.com/in/hamidreza-haji" target="_blank" rel="noreferrer" className="pill pill--ghost">LinkedIn <small>↗︎</small></a>
           </div>
         </div>
