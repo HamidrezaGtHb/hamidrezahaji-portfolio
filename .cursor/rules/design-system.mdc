@@ -1,0 +1,15 @@
+---
+description: Visual system, tokens, section rhythm, WorkScroller breakpoints
+globs: styles/**/*.css,components/**/*.{tsx,css},app/**/*.module.css
+alwaysApply: false
+---
+
+# Design system
+
+- Tokens: `@styles/tokens.css`. Colors (`--ink`, `--paper`, `--muted`, …), type (Hanken Grotesk + Cormorant Garamond), space, section rhythm.
+- Sections: hairline top + `--section-y` padding; use `--head-gap` / `--block-gap` / `--page-top` / `--section-y-sm`. Prefer `components/ui/Section`.
+- Breakpoint note in tokens: **900px** is the main mobile CSS breakpoint (literal in media queries).
+- Work scroller (`WorkScroller.tsx`): pinned horizontal track on desktop/tablet; **stack** when `(max-width:767px)` or `prefers-reduced-motion`. Do not switch stack mode with `pointer:coarse` alone.
+- Motion: purposeful, respect reduced motion. Primitives: `Reveal`, `RevealItem`, `Display`, `Label`, `Rich`, `Button`, `Media`.
+- Avoid generic AI looks (purple gradients, cream+terracotta cliché, card spam in heroes). Stay on this calm paper/ink system.
+- Images: run `npm run images` for optimized public assets; originals stay in gitignored `images/`.

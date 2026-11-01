@@ -25,3 +25,6 @@ meinFoto.png
 
 # local CV backups — live files are public/cv/en.pdf and de.pdf only
 public/cv/*-Alt/
+
+# Cursor agent debug logs
+.cursor/debug*.log

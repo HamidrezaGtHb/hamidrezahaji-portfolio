@@ -1,0 +1,13 @@
+---
+description: Core portfolio constraints — stack, language default, ship habits
+alwaysApply: true
+---
+
+# Portfolio core
+
+- Stack: Next.js 15 App Router, React 19, CSS modules, `styles/tokens.css`.
+- Locales: `en` | `de`. Default for bare `/` is **de** via `middleware.ts` + cookie `hh-lang`. Cookie wins over default; no IP geo.
+- Copy: edit both languages in `content/i18n.ts` / `content/projects.ts`. CV: `public/cv/en.pdf` + `de.pdf` via `content/cv.ts`.
+- Design: change tokens first; reuse `components/ui/*`; match existing section rhythm (`--section-y`, `--head-gap`, `--block-gap`).
+- Deploy: push to `main`, then `npx vercel --prod --yes`. Do not run local `next build` just to ship.
+- Scope: smallest diff that solves the ask. No drive-by refactors or unsolicited markdown docs.

@@ -1,0 +1,14 @@
+---
+description: Bilingual EN/DE copy and language routing rules
+globs: content/**/*.{ts,tsx},middleware.ts,app/**/layout.tsx,components/Nav.tsx,components/HtmlLang.tsx,components/Footer.tsx
+alwaysApply: false
+---
+
+# i18n EN/DE
+
+- Source of truth: `content/i18n.ts` (`Lang`, `LANGS`, nested dict). Projects: `content/projects.ts` + `localized()`.
+- Always add/change **en and de together**. Mirror keys; keep tone calm and employer-facing (Germany-first).
+- Routing: `app/[lang]/…`. `middleware.ts` sets/reads `hh-lang` on `/en` and `/de`; bare paths redirect to cookie or `de`.
+- Root `app/page.tsx` fallbacks to `/de` only.
+- Nav language switch is normal links under `/en`|/`/de` — visiting a lang path updates the cookie; no extra client cookie code needed.
+- CV download: `cv(lang)` from `content/cv.ts` — replace PDFs in `public/cv/` without renaming unless updating `cv.ts`.

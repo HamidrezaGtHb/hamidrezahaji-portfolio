@@ -1,0 +1,13 @@
+---
+description: Next.js App Router patterns for this portfolio
+globs: app/**/*.{ts,tsx},next.config.ts,middleware.ts
+alwaysApply: false
+---
+
+# App Router
+
+- Routes live under `app/[lang]/`. Keep `lang` typed as `Lang` from `content/i18n`.
+- Server Components by default; add `'use client'` only for interaction (forms, scroller, nav menu).
+- Colocate `page.module.css` with the route. Shared chrome: `Nav`, `Footer`, `Progress` from lang layout.
+- Contact form uses Supabase via `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` — never hardcode keys.
+- Matcher in middleware already skips `_next`, `api`, and static files with extensions.

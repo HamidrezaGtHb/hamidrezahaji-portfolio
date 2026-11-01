@@ -1,0 +1,21 @@
+# Build / deps
+.next/
+out/
+node_modules/
+.vercel/
+
+# Local originals & backups (optimized copies are in public/)
+images/
+meinFoto.png
+public/cv/*-Alt/
+
+# Noise
+.cursor/debug*.log
+*.tsbuildinfo
+npm-debug.log*
+.DS_Store
+
+# Env (never feed secrets to context)
+.env
+.env.*
+!.env.example
