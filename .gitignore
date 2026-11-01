@@ -22,3 +22,6 @@ npm-debug.log*
 # local source originals (optimized copies live in public/)
 images/
 meinFoto.png
+
+# local CV backups — live files are public/cv/en.pdf and de.pdf only
+public/cv/*-Alt/
