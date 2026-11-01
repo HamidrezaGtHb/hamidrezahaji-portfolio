@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<title>راهنمای استفاده از Cursor برای پروژه Portfolio</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  :root {
+    --ink: #2A2826;
+    --muted: #5c574f;
+    --line: #ddd8cf;
+    --paper: #F7F5F1;
+    --box: #efece6;
+    --accent: #3d5a40;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Arial Unicode MS", "Arial", "Tahoma", sans-serif;
+    color: var(--ink);
+    background: white;
+    font-size: 11.5pt;
+    line-height: 1.75;
+  }
+  h1 {
+    font-size: 20pt;
+    line-height: 1.3;
+    margin: 0 0 6pt;
+    font-weight: 700;
+  }
+  .sub {
+    color: var(--muted);
+    font-size: 10.5pt;
+    margin: 0 0 18pt;
+  }
+  h2 {
+    font-size: 13.5pt;
+    margin: 22pt 0 8pt;
+    padding-bottom: 4pt;
+    border-bottom: 1px solid var(--line);
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 11.5pt;
+    margin: 14pt 0 6pt;
+    page-break-after: avoid;
+  }
+  p, li { margin: 0 0 7pt; }
+  ul, ol { padding-right: 18pt; margin: 0 0 10pt; }
+  li { padding-right: 2pt; }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8pt;
+    margin-bottom: 16pt;
+    font-size: 9.5pt;
+    color: var(--muted);
+  }
+  .chip {
+    background: var(--box);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 2pt 10pt;
+  }
+  .box {
+    background: var(--box);
+    border: 1px solid var(--line);
+    border-radius: 8pt;
+    padding: 10pt 12pt;
+    margin: 10pt 0 14pt;
+    page-break-inside: avoid;
+  }
+  .box.ok { border-right: 4pt solid var(--accent); }
+  .box.warn { border-right: 4pt solid #9a5b2e; }
+  .label {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--muted);
+    margin-bottom: 4pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8pt 0 14pt;
+    font-size: 10.5pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 7pt 8pt;
+    vertical-align: top;
+    text-align: right;
+  }
+  th { background: var(--box); font-weight: 700; }
+  code, .ltr {
+    direction: ltr;
+    unicode-bidi: isolate;
+    font-family: "Menlo", "Consolas", "Courier New", monospace;
+    font-size: 9.5pt;
+  }
+  code.inline {
+    background: var(--box);
+    padding: 1pt 5pt;
+    border-radius: 4pt;
+    border: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  pre {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: left;
+    background: #2A2826;
+    color: #F7F5F1;
+    border-radius: 8pt;
+    padding: 10pt 12pt;
+    font-family: "Menlo", "Consolas", "Courier New", monospace;
+    font-size: 9pt;
+    line-height: 1.55;
+    overflow: hidden;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+  }
+  .step-num {
+    display: inline-block;
+    width: 18pt;
+    height: 18pt;
+    line-height: 18pt;
+    text-align: center;
+    background: var(--ink);
+    color: white;
+    border-radius: 50%;
+    font-size: 9.5pt;
+    font-weight: 700;
+    margin-left: 6pt;
+  }
+  .footer {
+    margin-top: 28pt;
+    padding-top: 10pt;
+    border-top: 1px solid var(--line);
+    font-size: 9pt;
+    color: var(--muted);
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10pt;
+    margin: 8pt 0 14pt;
+  }
+  .two-col .box { margin: 0; }
+  @media print {
+    body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<h1>راهنمای استفاده از Cursor<br/>برای پروژه Portfolio</h1>
+<p class="sub">چطور با کمترین توکن، ادیت‌های دقیق بزنی — بدون اینکه هر بار کل پروژه دوباره خوانده شود.</p>
+<div class="meta">
+  <span class="chip">پروژه: hamidrezahaji-portfolio</span>
+  <span class="chip">پلن: Cursor Plus</span>
+  <span class="chip">تاریخ: نوامبر ۲۰۲۶</span>
+</div>
+
+<div class="box ok">
+  <div class="label">ایدهٔ اصلی در یک جمله</div>
+  دانش ثابت پروژه داخل ریپو ذخیره شده است. تو فقط کار امروز را کوتاه بنویس، فایل‌های مرتبط را با <code class="inline">@</code> بده، و چت تازه باز کن. لازم نیست دوباره داستان پروژه را تعریف کنی.
+</div>
+
+<h2>۱) این ستاپ چیست؟</h2>
+<p>قابلیت <strong>Projects</strong> در Cursor برای پلن Plus مناسب ذخیرهٔ دانش پروژه نیست. به جایش این‌ها داخل خود ریپو ساخته شده:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>فایل / پوشه</th>
+      <th>نقش</th>
+      <th>کی به Agent داده می‌شود؟</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="inline">AGENTS.md</code></td>
+      <td>نقشهٔ کوتاه پروژه + قوانین کلی</td>
+      <td>تقریباً همیشه</td>
+    </tr>
+    <tr>
+      <td><code class="inline">.cursor/rules/portfolio-core.mdc</code></td>
+      <td>قوانین هسته‌ای خیلی کوتاه</td>
+      <td>همیشه</td>
+    </tr>
+    <tr>
+      <td><code class="inline">.cursor/rules/*.mdc</code> بقیه</td>
+      <td>i18n، دیزاین، App Router</td>
+      <td>فقط وقتی فایل مرتبط باز/ادیت است</td>
+    </tr>
+    <tr>
+      <td><code class="inline">.cursor/skills/</code></td>
+      <td>روندهای تکراری مثل دیپلوی یا کپی دو زبانه</td>
+      <td>فقط وقتی لازم شود</td>
+    </tr>
+    <tr>
+      <td><code class="inline">.cursorignore</code></td>
+      <td>جلوگیری از خواندن فایل‌های سنگین/بی‌فایده</td>
+      <td>همیشه به‌عنوان فیلتر</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>۲) قانون طلایی مصرف توکن</h2>
+<ol>
+  <li><strong>برای هر کار جدید، چت جدید باز کن.</strong> تاریخچهٔ بلند بیشترین مصرف را دارد.</li>
+  <li><strong>فقط ۱ تا ۳ فایل لازم را با <code class="inline">@</code> منشن کن.</strong> کل پوشهٔ <code class="inline">app/</code> را نده.</li>
+  <li><strong>اول Ask، بعد Agent.</strong> اگر فقط می‌خواهی «کجاست؟» بپرسی، Ask Mode کافی است.</li>
+  <li><strong>یک کار در هر پیام.</strong> مثلاً فقط فاصلهٔ سکشن، نه همزمان ریفکتور کل سایت.</li>
+  <li>اگر Agent دو بار یک اشتباه را تکرار کرد، همان قانون را در Rules سفت‌تر کن — نه اینکه دوباره در چت توضیح طولانی بدهی.</li>
+</ol>
+
+<div class="box warn">
+  <div class="label">کارهایی که توکن می‌سوزاند</div>
+  چت خیلی طولانی نگه داشتن · فرستادن کل فولدرها · باز گذاشتن MCPهای بلااستفاده · گفتن «کل پروژه را بررسی کن» برای یک ادیت کوچک · ساختن PDF/داک اضافه بدون نیاز
+</div>
+
+<h2>۳) نحوهٔ استفادهٔ روزانه (گام‌به‌گام)</h2>
+
+<h3><span class="step-num">1</span> پروژه را در Cursor باز کن</h3>
+<p>همان پوشهٔ <code class="inline">hamidrezahaji-portfolio</code>. Rules و <code class="inline">AGENTS.md</code> خودکار دیده می‌شوند.</p>
+
+<h3><span class="step-num">2</span> چت Agent جدید بساز</h3>
+<p>موضوع قبلی را ادامه نده مگر اینکه دقیقاً همان باگ/ادیت باشد.</p>
+
+<h3><span class="step-num">3</span> فایل‌های هدف را با @ اضافه کن</h3>
+<p>مثال‌ها:</p>
+<ul>
+  <li>تغییر متن هیرو: <code class="inline">@content/i18n.ts</code></li>
+  <li>تغییر فاصلهٔ سکشن‌ها: <code class="inline">@styles/tokens.css</code></li>
+  <li>ادیت اسکرولر ورک: <code class="inline">@components/WorkScroller.tsx</code> و در صورت نیاز <code class="inline">@components/WorkScroller.module.css</code></li>
+  <li>مسیر زبان: <code class="inline">@middleware.ts</code></li>
+</ul>
+
+<h3><span class="step-num">4</span> درخواست را کوتاه و مشخص بنویس</h3>
+<div class="two-col">
+  <div class="box ok">
+    <div class="label">خوب</div>
+    در هر دو زبان EN و DE، جملهٔ status هیرو را عوض کن به: Open to Product Design roles in Germany.
+  </div>
+  <div class="box warn">
+    <div class="label">بد</div>
+    یه نگاهی به کل سایت بنداز و هیرو و بقیه جاها رو بهتر کن و اگر لازم بود دیپلوی هم بکن.
+  </div>
+</div>
+
+<h3><span class="step-num">5</span> نتیجه را چک کن</h3>
+<p>اگر کار درست بود و خواستی برود روی سرور زنده، صریح بگو: <strong>«کامیت، پوش و دیپلوی کن»</strong>. بدون این جمله معمولاً دیپلوی نمی‌شود.</p>
+
+<h2>۴) چه چیزی از قبل داخل پروژه حفظ شده؟</h2>
+<p>دیگر لازم نیست این‌ها را هر بار توضیح بدهی:</p>
+<ul>
+  <li>زبان پیش‌فرض آلمانی است؛ انتخاب زبان با کوکی <code class="inline">hh-lang</code> یادآوری می‌شود.</li>
+  <li>کپی‌ها دو زبانه هستند: <code class="inline">content/i18n.ts</code> و پروژه‌ها در <code class="inline">content/projects.ts</code>.</li>
+  <li>رزومه: <code class="inline">public/cv/en.pdf</code> و <code class="inline">public/cv/de.pdf</code>.</li>
+  <li>توکن‌های طراحی در <code class="inline">styles/tokens.css</code> هستند.</li>
+  <li>روی موبایل باریک (زیر ۷۶۸px) ورک به صورت stack است؛ تبلت pinned می‌ماند.</li>
+  <li>دیپلوی: <code class="inline">npx vercel --prod</code> — بیلد لوکال اجباری نیست.</li>
+</ul>
+
+<h2>۵) Skills آماده در این پروژه</h2>
+<table>
+  <thead>
+    <tr>
+      <th>نام</th>
+      <th>کی استفاده شود</th>
+      <th>نمونه جمله به Agent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="inline">ship-vercel</code></td>
+      <td>رفتن روی پروداکشن</td>
+      <td>کامیت کن، پوش کن و دیپلوی کن</td>
+    </tr>
+    <tr>
+      <td><code class="inline">edit-bilingual-copy</code></td>
+      <td>تغییر متن EN+DE</td>
+      <td>متن About را در هر دو زبان کوتاه‌تر کن</td>
+    </tr>
+  </tbody>
+</table>
+<p>لازم نیست اسم Skill را حفظ کنی؛ اگر منظورت واضح باشد Agent خودش می‌فهمد. اگر خواستی صریح بگو: «طبق skill مربوط به دیپلوی پیش برو».</p>
+
+<h2>۶) الگوی پیام‌های آماده (کپی کن)</h2>
+
+<h3>تغییر کپی</h3>
+<pre>@content/i18n.ts
+در en و de، کلید hero.tagline را به این متن عوض کن:
+EN: ...
+DE: ...
+فقط همین کلید. دیپلوی نکن.</pre>
+
+<h3>تغییر دیزاین</h3>
+<pre>@styles/tokens.css
+مقدار --section-y را کمی کمتر کن تا سکشن‌ها فشرده‌تر شوند.
+فقط توکن‌ها. کامیت نکن مگر بگویم.</pre>
+
+<h3>باگ یک کامپوننت</h3>
+<pre>@components/WorkScroller.tsx @components/WorkScroller.module.css
+روی عرض ۳۹۰px کارت‌ها باید stack باشند.
+علت را پیدا کن و با کمترین تغییر درست کن.</pre>
+
+<h3>دیپلوی</h3>
+<pre>تغییرات فعلی را کامیت و پوش کن، بعد vercel --prod.</pre>
+
+<h2>۷) پروژه‌های بعدی تو</h2>
+<p>یک Skill شخصی به نام <code class="inline">scaffold-agent-context</code> روی سیستم تو نصب است. در پروژهٔ جدید بگو:</p>
+<pre>برای این ریپو همان ستاپ کم‌توکن Cursor را بساز
+(AGENTS.md + rules + .cursorignore + skills لازم)</pre>
+<p>Agent از روی استک همان پروژه، نسخهٔ اختصاصی می‌سازد — لازم نیست این چت Portfolio را دوباره باز کنی.</p>
+
+<h2>۸) چک‌لیست ۳۰ ثانیه‌ای قبل از هر ادیت</h2>
+<ol>
+  <li>چت جدید؟</li>
+  <li>می‌دانم کدام ۱–۳ فایل؟ اگر نه → اول Ask</li>
+  <li>درخواست یک‌جمله‌ای و مشخص؟</li>
+  <li>اگر متن است → هر دو زبان؟</li>
+  <li>اگر باید زنده شود → صریح بگو دیپلوی</li>
+</ol>
+
+<div class="box ok">
+  <div class="label">نتیجهٔ مورد انتظار</div>
+  ادیت‌های معمولی Portfolio باید در چت‌های کوتاه، با چند فایل مشخص، و بدون توضیح دوبارهٔ تاریخچه انجام شوند. Rules کار حافظهٔ پروژه را می‌کنند؛ تو فقط کار امروز را می‌گویی.
+</div>
+
+<div class="footer">
+  فایل‌های مرتبط در ریپو:
+  <span class="ltr">AGENTS.md · .cursor/rules/ · .cursor/skills/ · .cursorignore</span><br/>
+  این راهنما: <span class="ltr">docs/cursor-agent-usage.pdf</span>
+</div>
+
+</body>
+</html>
