@@ -1,2 +1,3 @@
 import { redirect } from 'next/navigation';
-export default function Root() { redirect('/en'); }
+/** Fallback if middleware is skipped — German is the site default. */
+export default function Root() { redirect('/de'); }
